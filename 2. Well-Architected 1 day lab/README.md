@@ -1,4 +1,4 @@
-# Well-Architected 1 day lab
+# Well-Architected 1-day lab
 
 Welcome to the Well-Architected lab. This is a 1-day hands-on experience where you will be given a set of challenges
 to practice the skills you learnt in the [Well-Architected Workshop](../1.%20Well-Architected%20Workshop).
@@ -15,11 +15,13 @@ Well-Architected Framework standardized process || 20 min
 Break || 15 min
 Group formation || 10 min
 Case Study & Lab rest of the day |
-Build your case |<table><tr><td>Review the customer case study</td><td>20 min</td></tr><tr><td>Plan for information collection</td><td>15 min</td></tr><tr><td>Cost optimization</td><td>45 min</td></tr><tr><td>Security</td><td>30 min</td></tr><tr><td>Reliability</td><td>60-90 min</td></tr><tr><td>Performance & Efficiency</td><td>45 min</td></tr><tr><td>Operational Excellence</td><td>30 min</td></tr></table> | ~4h    
+Build your case |<table><tr><td>Review the customer case study</td><td>20 min</td></tr><tr><td>Plan for information collection</td><td>15 min</td></tr><tr><td>Cost optimization</td><td>45 min</td></tr><tr><td>Security</td><td>30 min</td></tr><tr><td>Reliability</td><td>60-90 min</td></tr><tr><td>Performance & Efficiency</td><td>45 min</td></tr><tr><td>Operational Excellence</td><td>30 min</td></tr><tr><td>Create a prioritized plan</td><td>30 min</td></tr></table> | ~5h    
 Break || 45 min    
 Teams presentation || 1h
 Wrap up || 30 min
-&nbsp;| Total: | **~6 h**
+&nbsp;| Total: | **~7 h**
+
+> Recommendation: 2 hours before the end of the event start preparing your plan.
 
 ## Case Study
 
@@ -93,9 +95,8 @@ They use Azure Backup.
 * There is a mismatch of the expected consumption for the deployed resources and what they are being 
 charged. They do not know where those charges may be coming from.
 
-### Customer concerns and objections
+#### Customer concerns and objections
 
-Facts:
 * After merging with another company, the customer is struggling to provide a good service from their claims app to their mobile agents.
 * They need to provide redundancy and resiliency to deliver 99.95% SLA or greater
 * Improve the reliability of the VPN
@@ -109,23 +110,16 @@ Facts:
 
 ## Well-Architected Review
 
-Here starts the exercise you have to do to review the architecture of the Contoso Inc. Insurance company claims application.
+Here starts the exercise you have to do to review the architecture of the Contoso Inc. Insurance company claims application. Follow the links to go through the different steps.
 
-### 1 - Review the customer case study
-
-### 2 – Plan for Information Collection
-
-### 3 – Cost Optimization
-
-### 4 – Security
-
-### 5 – Reliability
-
-### 6 – Performance Efficiency
-
-### 7 – Operational Excellence
-
-### 8 – Create a plan
+1. [Review the customer case study (20 min)](challenges/01.CustomerCase.md)
+1. [Plan for information collection (15 min)](challenges/02.InformationCollection.md)
+1. [Cost optimization (45 min)](challenges/03.CostOptimization.md)
+1. [Security (30 min)](challenges/04.Security.md)
+1. [Reliability (~1 h)](challenges/05.Reliability.md)
+1. [Performance & Efficiency (45 min)](challenges/06.Performance.md)
+1. [Operational Excellence (30 min)](challenges/07.Operations.md)
+1. [Create a plan (30 min)](challenges/08.CreatePlan.md)
 
 
 ## Ask The CTO Bot
