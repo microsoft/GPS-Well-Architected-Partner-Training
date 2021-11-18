@@ -19,6 +19,11 @@ It is a 1-day lab, where you will be given a customer case and you will do a gro
 
 Ask your local PTS/PDM in Microsoft GPS organization for getting info about upcoming workshops.
 
+## License
+
+This project is licensed under the [MIT license](LICENSE).
+
+> **Trademarks** This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft’s Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party’s policies.
 
 [WAF-Intro]: https://www.microsoft.com/azure/partners/well-architected
 [WAF-Workshop]: ../../../Well-Architected-Partner-Training/tree/main/1.%20Well-Architected%20Workshop
