@@ -113,7 +113,7 @@ charged. They do not know where those charges may be coming from.
 Here starts the exercise you have to do to review the architecture of the Contoso Inc. Insurance company claims application. Follow the links to go through the different steps.
 
 1. [Review the customer case study (20 min)](challenges/01.CustomerCase.md)
-1. [Plan for information collection (15 min)](challenges/02.InformationCollection.md)
+1. [Plan for information collection (15 min)](challenges/02.PlanCollection.md)
 1. [Cost optimization (45 min)](challenges/03.CostOptimization.md)
 1. [Security (30 min)](challenges/04.Security.md)
 1. [Reliability (~1 h)](challenges/05.Reliability.md)
