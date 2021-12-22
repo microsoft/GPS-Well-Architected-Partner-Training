@@ -9,11 +9,11 @@ This is a CSA-Led training workshop for software architects and pre-sales engine
     * Well-Architected Process
     * Tools
 * The 5 pillar details
-    * Cost optimization 
-    * Operations Excellence 
-    * Performance 
-    * Reliability 
-    * Security 
+    * Cost optimization
+    * Operations Excellence
+    * Performance
+    * Reliability
+    * Security
 * Remediation Phase
 * Expected outcome
 
@@ -24,16 +24,16 @@ You can find in this folder the [Well-Architected Workshop full presentation](Az
 ## Documentation
 
 * [Azure Well-Architected Framework documentation](https://aka.ms/architecture/framework)
-* Microsoft Learn course
-* Architecture center
-* Azure Security Benchmark
+* [Microsoft Learning Path](https://docs.microsoft.com/en-us/learn/paths/azure-well-architected-framework/)
+* [Architecture center](https://aka.ms/architecture)
+* [Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark)
 
 
 ## Tools
 
-* Azure Well-Architected Review
-* CCO Dashboard
-* AzGovViz
-* Cloud adoption Framework tools
-* Well-Architected Tools
+* [Azure Well-Architected Review](https://aka.ms/architecture/review)
+* [CCO Dashboard](https://github.com/Azure/ccodashboard)
+* [AzGovViz](https://github.com/JulianHayward/Azure-MG-Sub-Governance-Reporting)
+* [Cloud adoption Framework tools](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/reference/tools-templates)
+* [Well-Architected Tools](https://github.com/Azure/wellarchitected-tools)
 
