@@ -37,3 +37,6 @@ You can find in this folder the [Well-Architected Workshop full presentation](Az
 * [Cloud adoption Framework tools](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/reference/tools-templates)
 * [Well-Architected Tools](https://github.com/Azure/wellarchitected-tools)
 
+## Next step
+
+Put these lessons into practice with the [Well-Architected Lab](../2.%20Well-Architected%201%20day%20lab)
