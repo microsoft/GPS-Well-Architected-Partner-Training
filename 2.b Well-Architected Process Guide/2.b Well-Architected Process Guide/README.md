@@ -21,11 +21,11 @@ You should have already seen in the [Well-Architected Introduction][waf-introduc
 
 Doing a complete assessment of your workload can be a long process and takes a long time. So it is better to define a scope for your assessment to focus on the most important areas aligned with your current business needs.Select between one or three of the five-pillars of the Well-Architected Framework:
 
-- [] Cost optimization
-- [] Performance Efficiency
-- [] Reliability
-- [] Operational Excellence
-- [] Security
+- [ ] Cost optimization
+- [ ] Performance Efficiency
+- [ ] Reliability
+- [ ] Operational Excellence
+- [ ] Security
 
 Do not worry if you feel you cannot choose only three, the assessment will provide you with recommendations in other pillars as well, but it is better to focus on the ones that will have a greater impact in the short term.
 
