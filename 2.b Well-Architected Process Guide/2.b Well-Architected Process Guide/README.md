@@ -19,7 +19,7 @@ You should have already seen in the [Well-Architected Introduction][waf-introduc
 
 ### Define Scope
 
-Doing a complete assessment of your workload can be a long process and takes a long time. So it is better to define a scope for your assessment to focus on the most important areas aligned with your current business needs.Select between one or three of the five-pillars of the Well-Architected Framework:
+Doing a complete assessment of your workload can be a long process and takes a long time. So it is better to define a scope for your assessment to focus on the most important areas aligned with your current business needs.Select between one and , at most, three of the five-pillars of the Well-Architected Framework:
 
 - [ ] Cost optimization
 - [ ] Performance Efficiency
@@ -27,8 +27,30 @@ Doing a complete assessment of your workload can be a long process and takes a l
 - [ ] Operational Excellence
 - [ ] Security
 
-Do not worry if you feel you cannot choose only three, the assessment will provide you with recommendations in other pillars as well, but it is better to focus on the ones that will have a greater impact in the short term.
+> Do not worry if you feel you need to pick them all, the assessment will provide you with some recommendations in other pillars even if you only choose one. If you are not sure, try to focus on the ones that you think will have a greater impact in the short term.
+
+### People and resources
+
+Architecture is designed by people, and during the assessment you will need to review the motivations of some architectural decissions, so you need to identify the people and resources that were involved in the current design, and also other important profiles who own, use, operate and monitor the current deployment. 
+
+You will also need at least read-only access to the workload resources on Azure, to connect some tools to gather important information. So come with these list with all checked:
+
+- [ ] List of the people who will be involved in the assessment
+- [ ] Account with read access to the workload's subscription
+- [ ] Architecture diagrams of the current workload
+- [ ] If available, the roadmap for the next version
+- [ ] Prepare and block the meetings with all the people involved
+    - [ ] First two days with the owner and architects
+    - [ ] Third and fourth days to analyze the results and write-down the recommendations
+    - [ ] Fifth day to present the results to everyone and agree on the next steps
+
+## Start with the assessment
+
+Now that you have all the prerequisites, you can start with the assessment following these steps:
 
 
-[waf-introduction]: ../0. Well-Architected Introduction
+
+
+
+[waf-introduction]: ../0.%20Well-Architected%20Introduction
 [waf-workshop]: ../1.%20Well-Architected%20Workshop
