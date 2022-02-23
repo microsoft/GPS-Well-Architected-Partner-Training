@@ -53,9 +53,24 @@ Now that you have all the prerequisites, you can start with the assessment. But 
 - [ ] Access to the resources
 - [ ] Meetings prepared
 
+All right, let's [start with the review][start]. If you came back here but you have already started, continue in any of these steps:
+
+* [Workload mind map][start]
+* Information collection
+    * Well-Architected Assessment
+    * CCO Dashboard
+* Review the recommendations
+    * Cost Optimization
+    * Security
+    * Reliability
+    * Performance Efficiency
+    * Operational Excellence
+* Prioritize the recommendations
+* Write the roadmap
+* Present the results
 
 
-
+[start]: ./steps/01.Workload.md
 
 [waf-introduction]: ../0.%20Well-Architected%20Introduction
 [waf-workshop]: ../1.%20Well-Architected%20Workshop
