@@ -46,7 +46,12 @@ You will also need at least read-only access to the workload resources on Azure,
 
 ## Start with the assessment
 
-Now that you have all the prerequisites, you can start with the assessment following these steps:
+Now that you have all the prerequisites, you can start with the assessment. But first, let's review the information you have:
+
+- [ ] Selected Workload
+- [ ] Scope of the assessment
+- [ ] Access to the resources
+- [ ] Meetings prepared
 
 
 
