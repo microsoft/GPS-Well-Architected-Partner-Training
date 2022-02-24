@@ -44,6 +44,22 @@ You will also need at least read-only access to the workload resources on Azure,
     - [ ] Third and fourth days to analyze the results and write-down the recommendations
     - [ ] Fifth day to present the results to everyone and agree on the next steps
 
+### Define the Rhythm of the Architecture Review
+
+Establish the rhythm of the architecture review and plan each day. Here's an example:
+
+```mermaid
+flowchart LR
+
+A["<b>Day 1 (Meetings)</b><br>Quick-off meeting<br>Start assessment survey"] 
+B["<b>Day 2 (Meetings)</b><br>End survey<br>Subscription walkthrough<br>Gather data with CCO Dashboard"]
+C["<b>Day 3 (Offline Work)</b><br>Analyze data<br>Review recommendations"]
+D["<b>Day 4 (Offline)</b><br>Prioritize recommendations<br>Create the roadmap"]
+E["<b>Day 5 (Meetings)</b><br>Present recommendations<br>Discuss and reprioritize<br>Define next steps (short term)"]
+
+A-->B-->C-->D-->E
+```
+
 ## Start with the assessment
 
 Now that you have all the prerequisites, you can start with the assessment. But first, let's review the information you have:
