@@ -12,7 +12,58 @@ This repository contains the public training materials for the Well-Architected 
         2. The [Well-Architected Offering][WAF-Offering] to learn how to create a new offering in the Azure Marketplace
     * For **ISVs** we have prepared a step-by-step guide to help you review your own workload in the [Well-Architected Process Guide][WAF-Process-Guide]
 
-![Diagram of the training process][WAF_training_process]
+```mermaid
+
+flowchart TD
+
+1([Well-Architected introduction])
+2(2-hour Workshop)
+3{Partner type}
+4si{Training<br>or<br>Customer case}
+5si.a(WAF Lab)
+5si.b(Review your workload<br>with the Process Guide)
+6si(Align your practice to WAF)
+7si([Well-Architected Offering<br>Creation])
+
+4isv(Review your workload<br>with the Process Guide)
+5isv([Apply recommendations])
+
+1-->2-->3
+3 --> |System Integrator| 4si
+3 --> | ISV| 4isv-->5isv
+
+4si --> |Training| 5si.a --> 6si
+4si --> |Customer case| 5si.b --> 6si
+6si --> 7si
+
+linkStyle 3,4 stroke:#fb3,stroke-width:2px;
+linkStyle 2,5,6,9 stroke:#3f3,stroke-width:2px;
+linkStyle 7,8 stroke:#f61,stroke-width:2px;
+
+
+classDef init fill:#E4A951,stroke:#C48931,stroke-width:2px,color:#000;
+classDef review fill:#D49941,stroke:#b47921,stroke-width:2px,color:#000;
+classDef endc fill:#FF9790,stroke:#EF7770,stroke-width:2px,color:#000;
+classDef greenStroke stroke:#6CBE45,stroke-width:2px,color:#000;
+
+classDef gray fill:#aaa,stroke:#888,stroke-width:2px,color:#000;
+classDef purple fill:#D99BFF,stroke:#B97BDF,stroke-width:2px,color:#000;
+
+
+class 1 init;
+class 4isv,5si.b review;
+class 5isv,7si endc;
+class 3,4si gray;
+class 2,5si.a,6si purple;
+
+class nodeId6si greenStroke;
+
+click 2 "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/1. Well-Architected Workshop" "WAF Workshop"
+click 5si.a "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/2. Well-Architected 1 day lab" "WAF Lab"
+click 5si.b "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/2.b Well-Architected Process%20Guide" "WAF Process Guide"
+click 4isv "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/2.b Well-Architected Process%20Guide" "WAF Process Guide"
+```
+
 
 ## Description
 
