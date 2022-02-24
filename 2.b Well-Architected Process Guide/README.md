@@ -1,10 +1,25 @@
 # Well-Architected processes and tools for ISV and self-serve guide
 
-> Work in progress
+> Work in progress: this guide is still under development.
 
 The Well-Architected Framework contains a set of processes and tools to help customers review and enhance their workloads on Azure. You can find a detailed explanation on how to use the framework in the [Well-Architected Workshop][waf-workshop].
 
-This guide is intended to provide you with a step-by-step process to review the architecture of your own workload, and build a roadmap with the recommendations you will get after running the assessment.
+This guide is intended to provide you with a step-by-step process to review the architecture of your own workload, and build a roadmap with the recommendations you will get after running the assessment. 
+
+In the Well-Architected framework process we define four phases:
+
+```mermaid
+flowchart LR;
+    Prioritize --> Optimize;    
+    subgraph Review
+    Discover --> Analyze --> Prioritize;
+    end
+    subgraph Remediate
+    Optimize;
+    end
+```
+
+In this guide we will focus on the three first phases belonging to the Review subset.
 
 ## Prerequisites
 
@@ -51,11 +66,17 @@ Establish the rhythm of the architecture review and plan each day. Here's an exa
 ```mermaid
 flowchart LR
 
-A["<b>Day 1 (Meetings)</b><br>Quick-off meeting<br>Start assessment survey"] 
-B["<b>Day 2 (Meetings)</b><br>End survey<br>Subscription walkthrough<br>Gather data with CCO Dashboard"]
-C["<b>Day 3 (Offline Work)</b><br>Analyze data<br>Review recommendations"]
-D["<b>Day 4 (Offline)</b><br>Prioritize recommendations<br>Create the roadmap"]
-E["<b>Day 5 (Meetings)</b><br>Present recommendations<br>Discuss and reprioritize<br>Define next steps (short term)"]
+subgraph Discover
+A["<h2>Day 1 (Meetings)</h2>Quick-off meeting<br>Well-Architected survey"] 
+B["<h2>Day 2 (Meetings)</h2>Subscription walkthrough<br>Gather data with CCO Dashboard"]
+end
+subgraph Analyze
+C["<h2>Day 3 (Offline Work)</h2>Analyze data<br>Review recommendations"]
+end
+subgraph Prioritize
+D["<h2>Day 4 (Offline Work)</h2>Prioritize recommendations<br>Create the roadmap"]
+E["<h2>Day 5 (Meetings)</h2>Present recommendations<br>Discuss and reprioritize"]
+end
 
 A-->B-->C-->D-->E
 ```
@@ -71,18 +92,21 @@ Now that you have all the prerequisites, you can start with the assessment. But 
 
 All right, let's [start with the review][start]. If you came back here but you have already started, continue in any of these steps:
 
-* [Workload mind map][start]
-* Information collection
-    * Well-Architected Assessment
-    * CCO Dashboard
-* Review the recommendations
+* Discover
+    * [Workload mind map][start]
+    * Information collection
+        * Well-Architected Assessment
+        * CCO Dashboard
+* Analyze
     * Cost Optimization
     * Security
     * Reliability
     * Performance Efficiency
     * Operational Excellence
-* Prioritize the recommendations
-* Write the roadmap
+* Prioritize
+    * Well-Architected tools
+    * Priority Matrix
+    * Write the roadmap
 * Present the results
 
 
