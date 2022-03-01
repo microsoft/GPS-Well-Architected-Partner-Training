@@ -32,9 +32,11 @@ You should have already seen in the [Well-Architected Introduction][waf-introduc
 | **Name** | The actual name for your workload|
 | **Description** | A short description of your workload in three paragraphs:<br>* The business case it adresses<br>* The technology it is using<br>* The team and resources it needs |
 
-### Define Scope
+### Define the Scope
 
-Doing a complete assessment of your workload can be a long process and takes a long time. So it is better to define a scope for your assessment to focus on the most important areas aligned with your current business needs.Select between one and , at most, three of the five-pillars of the Well-Architected Framework:
+Doing the complete assessment of your workload can be a long process and take a long time. So, it is better to restrain the scope for your assessment to focus on the most important areas aligned with your current business needs.
+
+**Pick at most three** of the five pillars of the Well-Architected Framework:
 
 - [ ] Cost optimization
 - [ ] Performance Efficiency
@@ -46,9 +48,11 @@ Doing a complete assessment of your workload can be a long process and takes a l
 
 ### People and resources
 
-Architecture is designed by people, and during the assessment you will need to review the motivations of some architectural decissions, so you need to identify the people and resources that were involved in the current design, and also other important profiles who own, use, operate and monitor the current deployment. 
+Architecture is designed by people, and during the assessment you will need to review the motivations of some architectural decissions. You need to identify the people and resources that were involved in the current design. The people who own, use, operate and monitor the current deployment are also important in these meetings.
 
-You will also need at least read-only access to the workload resources on Azure, to connect some tools to gather important information. So come with these list with all checked:
+You will also need a read-only access to the workload resources on Azure, to connect the tools to gather the information you need.
+
+Here's a checklist of what you need before starting the assessment:
 
 - [ ] List of the people who will be involved in the assessment
 - [ ] Account with read access to the workload's subscription
@@ -59,7 +63,7 @@ You will also need at least read-only access to the workload resources on Azure,
     - [ ] Third and fourth days to analyze the results and write-down the recommendations
     - [ ] Fifth day to present the results to everyone and agree on the next steps
 
-## Select the type of Assessment you need
+## Select the type of Assessment you want to do
 
 There are two ways of running the assessment:
 
@@ -69,6 +73,8 @@ There are two ways of running the assessment:
 * **In-depth assessment**: you will follow the steps of this guide to gather all the needed information and to analyze in-depth every aspect of your architecture in regards to each pillar of the Well-Architected Framework.
 
 ## In-depth Well-Architected Assessment
+
+The full Well-Architected assessment process will take more time, but will also provide much more value, it will be more accurate and meaningful.
 
 ### Define the Rhythm of the Architecture Review
 
@@ -92,20 +98,20 @@ end
 A-->B-->C-->D-->E
 ```
 
-## Start with the assessment
+### Start with the assessment
 
-Now that you have all the prerequisites, you can start with the assessment. But first, let's review the information you have:
+Now that you have all the prerequisites, you can start with the assessment. But first, let's review again that you have all the information:
 
-- [ ] Selected Workload
-- [ ] Scope of the assessment
-- [ ] Access to the resources
-- [ ] Meetings prepared
+- [ ] The Workload is defined
+- [ ] The scope of the assessment is clear
+- [ ] You have access to the resources in Azure
+- [ ] You have prepared the agenda and the meetings
 
 All right, let's [start with the review][start]. If you came back here but you have already started, continue in any of these steps:
 
 * Discover
-    * [Workload mind map][start]
-    * Information collection
+    * [Workload mind map][01.workload]
+    * [Information collection][02.collection]
         * Well-Architected Assessment
         * CCO Dashboard
 * Analyze
@@ -122,6 +128,8 @@ All right, let's [start with the review][start]. If you came back here but you h
 
 
 [start]: ./steps/01.Workload.md
+[01.workload]: ./steps/01.Workload.md
+[02.collection]: ./steps/02.Collection.md
 
 [waf-introduction]: ../0.%20Well-Architected%20Introduction
 [waf-review]: https://docs.microsoft.com/en-us/assessments/
