@@ -59,6 +59,17 @@ You will also need at least read-only access to the workload resources on Azure,
     - [ ] Third and fourth days to analyze the results and write-down the recommendations
     - [ ] Fifth day to present the results to everyone and agree on the next steps
 
+## Select the type of Assessment you need
+
+There are two ways of running the assessment:
+
+* **Fast assessment**: this one is executed with a set of automatic tools to extract the information and to provide you with a quick overview of the assessment results in two simple steps:
+    1. You will fill the [Well-Architected Review][waf-review] connected to your Azure Advisor.
+    2. Once the assessment is done, you will export the results and create a recommendation report using the [Well-Architected Tools][warp]
+* **In-depth assessment**: you will follow the steps of this guide to gather all the needed information and to analyze in-depth every aspect of your architecture in regards to each pillar of the Well-Architected Framework.
+
+## In-depth Well-Architected Assessment
+
 ### Define the Rhythm of the Architecture Review
 
 Establish the rhythm of the architecture review and plan each day. Here's an example:
@@ -113,4 +124,6 @@ All right, let's [start with the review][start]. If you came back here but you h
 [start]: ./steps/01.Workload.md
 
 [waf-introduction]: ../0.%20Well-Architected%20Introduction
+[waf-review]: https://docs.microsoft.com/en-us/assessments/
 [waf-workshop]: ../1.%20Well-Architected%20Workshop
+[warp]: https://github.com/Azure/WellArchitected-Tools/tree/main/WARP/devops#reporting
