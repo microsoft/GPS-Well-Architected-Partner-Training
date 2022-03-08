@@ -1,5 +1,22 @@
 # The Well-Architected Training for partners
 
+## Why do you need Well-Architected and why it matters
+
+Running an architecture review after an incident is a very important tool to understand why it happened, but it may be too late because it could have already generated unexpected costs, business losses, a data breach, customer churn, loss of revenue or many other problems.
+
+This is why we recommend conducting regular architecture reviews, to ensure that your workload is using the architecture characteristics that fit your business needs and concerns and are among the up-to-date industry best practices, because...
+
+* You want to be confident that you pay for what you really need for your business and ensure that you have the tools and processes in place to detect, control and manage outlier costs in the case of an incident.
+* You need to know how resilient is your workload to failures and that you can recover all your systems and data in a specific amount of time.
+* It is important that your solution provides a good performance to its users, so they can do their tasks on time without any hassle, and that you are in control that it does not degrade over time.
+* Operational costs should be under control, and you need to ensure that your solution is tested and monitored all the time.
+* You have to assume zero trust and have to be confident that your solution is designed for security.
+* You should take into consideration all the trade-offs for the architecture decisions.
+
+The Well-Architected framework will provide you with a process and the tools to transform all these needs into a list of **actionable recommendations**.
+
+## Training process and contents
+
 This repository contains the public training materials for the Well-Architected Framework Training for partners. It is structured as follows:
 
 1. [Well-Architected Framework Introduction][WAF-Intro]
