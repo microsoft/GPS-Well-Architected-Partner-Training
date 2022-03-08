@@ -73,7 +73,10 @@ These materials can be used standalone, but they are intended to be used in a tr
 
 ### [Well-Architected Introduction][WAF-Intro]
 
-This is a standard level 100 introduction to the Well-Architected Framework. It explain the motivations behind the framework and how it is used.
+This is a standard level 100 introduction to the Well-Architected Framework. It explain the motivations behind the framework and how it is used. After reading or watching this introduction, it is recommended to follow one of these trainings to get the most out of this guides:
+
+* [Well-Architected training for partners][partner-training]
+* [Well-Architected leaning path in Microsoft Docs][docs-training]
 
 ### [Well-Architected Workshop][WAF-Workshop]
 
@@ -103,9 +106,11 @@ This project is licensed under the [MIT license](LICENSE).
 
 > **Trademarks** This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft’s Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party’s policies.
 
-[WAF-Intro]: https://www.microsoft.com/azure/partners/well-architected
+[WAF-Intro]: ../../../GPS-Well-Architected-Partner-Training/tree/main/0.%20Well-Architected%20Introduction
 [WAF-Workshop]: ../../../GPS-Well-Architected-Partner-Training/tree/main/1.%20Well-Architected%20Workshop
 [WAF-Lab]: ../../../GPS-Well-Architected-Partner-Training/tree/main/2.%20Well-Architected%201%20day%20lab
 [WAF-Offering]: ../../../GPS-Well-Architected-Partner-Training/tree/main/3.%20Well-Architected%20Offering
 [WAF-Process-Guide]: ../../../GPS-Well-Architected-Partner-Training/tree/main/2.b%20Well-Architected%20Process%20Guide
 [WAF_training_process]: ./WAF_training_process.svg "The Well-Architected training explained"
+[partner-training]: https://www.microsoft.com/azure/partners/well-architected
+[docs-training]: https://docs.microsoft.com/en-us/learn/paths/azure-well-architected-framework/

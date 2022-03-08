@@ -1,6 +1,7 @@
 # Well-Architected processes and tools for ISV and self-serve guide
 
-> Work in progress: this guide is still under development.
+> **⚠️ Work in progress**
+> <br>This guide is still incomplete, but is based on the information you will find in the [Workshop][waf-workshop].
 
 The Well-Architected Framework contains a set of processes and tools to help customers review and enhance their workloads on Azure. You can find a detailed explanation on how to use the framework in the [Well-Architected Workshop][waf-workshop].
 
@@ -23,6 +24,13 @@ In this guide we will focus on the three first phases belonging to the Review su
 
 ## Prerequisites
 
+If you did not receive any training about Well-Architected Framework, you need first to take one of these two trainings:
+
+* [Well-Architected training for partners][partner-training]
+* [Well-Architected leaning path in Microsoft Docs][docs-training]
+
+After this, check the next points: select your workload, define the scope and people and resources.
+
 ### Select the workload
 
 You should have already seen in the [Well-Architected Introduction][waf-introduction] and [Workshop][waf-workshop] that we are going to work over a specific workload.So the first step is to define which workload we are going to review and gather some basic information about it. You may already know everything about your workload, but take the time to document it so anyone can have this information in the same place.
@@ -38,13 +46,13 @@ Doing the complete assessment of your workload can be a long process and take a 
 
 **Pick at most three** of the five pillars of the Well-Architected Framework:
 
-- [ ] Cost optimization
+- [x] Cost optimization
 - [ ] Performance Efficiency
 - [ ] Reliability
 - [ ] Operational Excellence
 - [ ] Security
 
-> Do not worry if you feel you need to pick them all, the assessment will provide you with some recommendations in other pillars even if you only choose one. If you are not sure, try to focus on the ones that you think will have a greater impact in the short term.
+> 🆘 If you are not sure, start with the Cost Optimization one. It will have an easily measurable impact in terms of savings, and the budget margin you will gain could serve to enhance the other pillars afterward.
 
 ### People and resources
 
@@ -135,3 +143,6 @@ All right, let's [start with the review][start]. If you came back here but you h
 [waf-review]: https://docs.microsoft.com/en-us/assessments/
 [waf-workshop]: ../1.%20Well-Architected%20Workshop
 [warp]: https://github.com/Azure/WellArchitected-Tools/tree/main/WARP/devops#reporting
+
+[partner-training]: https://www.microsoft.com/azure/partners/well-architected
+[docs-training]: https://docs.microsoft.com/en-us/learn/paths/azure-well-architected-framework/
