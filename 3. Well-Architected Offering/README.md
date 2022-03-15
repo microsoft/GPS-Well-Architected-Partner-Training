@@ -46,9 +46,9 @@ This section is extremely important to allow us to nominate the listing as a CAF
 
 ![examples3]
  
-## Internal Steps
+## Next Step
 
-After the offer is published, the PTS will have to review the offering and apply to this internal form to promote the offer in the [CAF listing: Cloud Adoption Framework Validated Partner Offers (office.com)][caf-listing]
+After the offer is published, check with your Microsoft contact.
 
 
 [planoffer]: https://docs.microsoft.com/azure/marketplace/plan-consulting-service-offer#eligibility-requirements
@@ -57,10 +57,10 @@ After the offer is published, the PTS will have to review the offering and apply
 [inetum-example]: https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/inetumrealdolmen_apps-infra.wafmgd
 [tokiota-example]: https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tokiota.tkt-sec-waf?page=1&search=waf
 
-[cosell]: ./offer_cosell.png
-[duration]: ./offer_duration.png
-[examples]: ./offer_examples.png
-[examples2]: ./offer_examples2.png
-[examples3]: ./offer_examples3.png
-[listing]: ./offer_listing.png
-[properties]: ./offer_properties.png "Set Azure as primary product"
+[cosell]: ./images/offer_cosell.png
+[duration]: ./images/offer_duration.png
+[examples]: ./images/offer_examples.png
+[examples2]: ./images/offer_examples2.png
+[examples3]: ./images/offer_examples3.png
+[listing]: ./images/offer_listing.png
+[properties]: ./images/offer_properties.png "Set Azure as primary product"

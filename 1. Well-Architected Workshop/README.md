@@ -19,7 +19,7 @@ This is a CSA-Led training workshop for software architects and pre-sales engine
 
 ## Materials
 
-You can find in this folder the [Well-Architected Workshop full presentation](Azure%20Well-Architected%20Workshop.pdf) that already contains the links to all the tools. As additional content you can also find a custom [Continous Cloud Optimization Dashboard](ccodashboardiaas_modified.pbit).
+You can find in this folder the [Well-Architected Workshop full presentation][presentation] that already contains the links to all the tools. As additional content you can also find a custom [Continous Cloud Optimization Dashboard](ccodashboardiaas_modified.pbit).
 
 ## Documentation
 
@@ -40,3 +40,7 @@ You can find in this folder the [Well-Architected Workshop full presentation](Az
 ## Next step
 
 Put these lessons into practice with the [Well-Architected Lab](../2.%20Well-Architected%201%20day%20lab)
+
+
+
+[presentation]: Azure%20Well-Architected%20Workshop.pdf
