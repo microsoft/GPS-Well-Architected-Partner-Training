@@ -16,6 +16,7 @@ var sqlVmName='${uniqueName}sql'
 var vnetName= '${uniqueName}vnet'
 var frontendName='${uniqueName}web'
 var bastionName='${uniqueName}bastion'
+var storageName='${uniqueName}storage'
 module vNet 'resources/vnet.bicep' = {
   name: vnetName
   params: {
@@ -58,6 +59,13 @@ module frontend 'resources/webvm.bicep' = {
   ]
 }
 
+module storage 'resources/storage.bicep' = {
+  name: storageName
+  params:{
+    location: location
+    storageName:storageName
+  }
+}
 
 
 module bastion 'resources/bastion.bicep' = {

@@ -21,6 +21,7 @@ var uniqueName = substring('${name}prod${uniqueString(resourceGroup().id)}',0,10
 var sqlVmName='${uniqueName}sql'
 var vnetName= '${uniqueName}vnet'
 var dcName='${uniqueName}dc'
+var storageName='${uniqueName}storage'
 
 module vNet 'resources/vnet.bicep' = {
   name: vnetName
@@ -68,6 +69,16 @@ module frontend 'resources/vmss.bicep' = {
     vNet
   ]
 }
+
+module storage 'resources/storage.bicep' = {
+  name: storageName
+  params:{
+    location: location
+    storageName:storageName
+    storageAccountType: 'Standard_LRS'
+  }
+}
+
 
 module bastion 'resources/bastion.bicep' = {
   name: '${uniqueName}_bastion'
