@@ -1,6 +1,6 @@
 # WAF Resources template
 
-[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FGPS-Well-Architected-Partner-Training-generator%2Fmain%2Fcoach-materials%2F2.%20Well-Architected%201%20day%20lab/support%20materials/template/azuredeploy.json?token=GHSAT0AAAAAABSTSGTGWCG32OTVUJK56FXGYT42VIQ)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FGPS-Well-Architected-Partner-Training-generator%2Fmain%2Fcoach-materials%2F2.%2520Well-Architected%25201%2520day%2520lab%2Fsupport%2520materials%2Ftemplate%2Fazuredeploy.json%3Ftoken%3DGHSAT0AAAAAABSTSGTGAVMFTLQVNTHKWWZOYT43AKQ)
 
 This is an ARM template for creating the WAF architecture for this exercise. Take into account that the bill of these resources can be huge, it is intended to be used as a starting point for the rest of the exercise, and deleted after the exercise is completed.
 
