@@ -14,6 +14,6 @@ It is parameterized with the following parameters:
 
 The command to deploy the resources is:
 
-````bash
+```bash
 az deployment sub create --location [location] -n [name] -f .\azuredeploy.bicep -p '@params.json'
 ```
