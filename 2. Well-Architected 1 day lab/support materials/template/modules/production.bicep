@@ -17,12 +17,15 @@ param vpnClientAddressPoolPrefix string = '10.10.8.0/24'
 param dcSubnetPrefix string = '10.0.10.0/24'
 
 
-var uniqueName = substring('${name}prod${uniqueString(resourceGroup().id)}',0,10)
+var uniqueName = take('${take(name,5)}pro${uniqueString(resourceGroup().id)}',11)
 var sqlVmName='${uniqueName}sql'
 var vnetName= '${uniqueName}vnet'
 var dcName='${uniqueName}dc'
 var storageName='${uniqueName}storage'
-
+var frontendName='${uniqueName}web'
+var bastionName='${uniqueName}bastion'
+var vpnName='${uniqueName}vpn'
+var backupName='${uniqueName}backup'
 module vNet 'resources/vnet.bicep' = {
   name: vnetName
   params: {
@@ -56,12 +59,12 @@ module sqlVm 'resources/sqlvm.bicep' = {
 }
 
 module frontend 'resources/vmss.bicep' = {
-  name: '${uniqueName}_frontend'
+  name: frontendName
   params: {
     location: location
     adminUsername: adminUsername
     adminPassword: adminPassword
-    nicIPAddress: '10.0.1.4' //TODO: find address
+    // nicIPAddress: '10.0.1.4' //TODO: find address
     virtualNetworkName: vNet.outputs.virtualNetworkName
     virtualNetworkSubnetName: vNet.outputs.lbSubnetName
   }
@@ -81,10 +84,10 @@ module storage 'resources/storage.bicep' = {
 
 
 module bastion 'resources/bastion.bicep' = {
-  name: '${uniqueName}_bastion'
+  name: bastionName
   params: {
     location: location
-    bastionHostName: '${uniqueName}bastion'
+    bastionHostName: bastionName
     bastionSubnetIpPrefix: bastionSubnetIpPrefix
     virtualNetworkName: vNet.outputs.virtualNetworkName
   }
@@ -100,18 +103,19 @@ module dc 'resources/dc.bicep' = {
     location: location
     adminUsername: adminUsername
     adminPassword: adminPassword
-    vmName: dcName
+    virtualMachineName: dcName
     existingVirtualNetworkName: vNet.outputs.virtualNetworkName
     existingSubnetName: vNet.outputs.dcSubnetName
     networkSecurityGroupName: vNet.outputs.networkSecurityGroupName
   }
   dependsOn: [
     vNet
+    frontend
   ]
 }
 
 module vpn 'resources/vpn.bicep' = if(vpnEnabled) {
-  name: '${uniqueName}_vpn'
+  name: vpnName
   params: {
     location: location
     environmentPrefix: 'Prod'
@@ -125,10 +129,10 @@ module vpn 'resources/vpn.bicep' = if(vpnEnabled) {
 }
 
 module backup 'resources/backup.bicep' = if(backupEnabled) {
-  name: '${uniqueName}_backup'
+  name: backupName
   params: {
     location: location
-    vaultName: '${uniqueName}backup'
+    vaultName: backupName
     vmNames: [
       sqlVm.outputs.virtualMachineName
     ]

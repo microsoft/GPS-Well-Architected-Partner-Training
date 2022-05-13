@@ -71,8 +71,9 @@ param storageAccountType string = 'StandardSSD_ZRS'
 
 param storageDiskSize int = 1023
 
-var networkInterfaceName = '${virtualMachineName}-nic'
-var networkSecurityGroupName = '${virtualMachineName}-nsg'
+var vmName = take(virtualMachineName,15) //maximum length of VM name is 15
+var networkInterfaceName = '${vmName}-nic'
+var networkSecurityGroupName = '${vmName}-nsg'
 var networkSecurityGroupRules = [
   {
     name: 'RDP'
@@ -88,7 +89,7 @@ var networkSecurityGroupRules = [
     }
   }
 ]
-var publicIpAddressName_var = '${virtualMachineName}-publicip-${uniqueString(virtualMachineName)}'
+var publicIpAddressName_var = '${vmName}-publicip-${uniqueString(vmName)}'
 var publicIpAddressType = 'Dynamic'
 var publicIpAddressSku = 'Basic'
 var diskConfigurationType = 'NEW'
@@ -187,7 +188,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
       ]
     }
     osProfile: {
-      computerName: virtualMachineName
+      computerName: vmName
       adminUsername: adminUsername
       adminPassword: adminPassword
       windowsConfiguration: {

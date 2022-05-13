@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.6.11.53198",
-      "templateHash": "13306262908654971419"
+      "templateHash": "4741067422769352248"
     }
   },
   "parameters": {
@@ -111,7 +111,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.6.11.53198",
-              "templateHash": "15225448010870383487"
+              "templateHash": "18292618483642524241"
             }
           },
           "parameters": {
@@ -170,11 +170,15 @@
             }
           },
           "variables": {
-            "uniqueName": "[substring(format('{0}prod{1}', parameters('name'), uniqueString(resourceGroup().id)), 0, 10)]",
+            "uniqueName": "[take(format('{0}pro{1}', take(parameters('name'), 5), uniqueString(resourceGroup().id)), 11)]",
             "sqlVmName": "[format('{0}sql', variables('uniqueName'))]",
             "vnetName": "[format('{0}vnet', variables('uniqueName'))]",
             "dcName": "[format('{0}dc', variables('uniqueName'))]",
-            "storageName": "[format('{0}storage', variables('uniqueName'))]"
+            "storageName": "[format('{0}storage', variables('uniqueName'))]",
+            "frontendName": "[format('{0}web', variables('uniqueName'))]",
+            "bastionName": "[format('{0}bastion', variables('uniqueName'))]",
+            "vpnName": "[format('{0}vpn', variables('uniqueName'))]",
+            "backupName": "[format('{0}backup', variables('uniqueName'))]"
           },
           "resources": [
             {
@@ -407,7 +411,7 @@
                     "_generator": {
                       "name": "bicep",
                       "version": "0.6.11.53198",
-                      "templateHash": "6898807233921415123"
+                      "templateHash": "1700138071535369743"
                     }
                   },
                   "parameters": {
@@ -541,8 +545,9 @@
                     }
                   },
                   "variables": {
-                    "networkInterfaceName": "[format('{0}-nic', parameters('virtualMachineName'))]",
-                    "networkSecurityGroupName": "[format('{0}-nsg', parameters('virtualMachineName'))]",
+                    "vmName": "[take(parameters('virtualMachineName'), 15)]",
+                    "networkInterfaceName": "[format('{0}-nic', variables('vmName'))]",
+                    "networkSecurityGroupName": "[format('{0}-nsg', variables('vmName'))]",
                     "networkSecurityGroupRules": [
                       {
                         "name": "RDP",
@@ -558,7 +563,7 @@
                         }
                       }
                     ],
-                    "publicIpAddressName_var": "[format('{0}-publicip-{1}', parameters('virtualMachineName'), uniqueString(parameters('virtualMachineName')))]",
+                    "publicIpAddressName_var": "[format('{0}-publicip-{1}', variables('vmName'), uniqueString(variables('vmName')))]",
                     "publicIpAddressType": "Dynamic",
                     "publicIpAddressSku": "Basic",
                     "diskConfigurationType": "NEW",
@@ -673,7 +678,7 @@
                           ]
                         },
                         "osProfile": {
-                          "computerName": "[parameters('virtualMachineName')]",
+                          "computerName": "[variables('vmName')]",
                           "adminUsername": "[parameters('adminUsername')]",
                           "adminPassword": "[parameters('adminPassword')]",
                           "windowsConfiguration": {
@@ -735,7 +740,7 @@
             {
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2020-10-01",
-              "name": "[format('{0}_frontend', variables('uniqueName'))]",
+              "name": "[variables('frontendName')]",
               "properties": {
                 "expressionEvaluationOptions": {
                   "scope": "inner"
@@ -751,9 +756,6 @@
                   "adminPassword": {
                     "value": "[parameters('adminPassword')]"
                   },
-                  "nicIPAddress": {
-                    "value": "10.0.1.4"
-                  },
                   "virtualNetworkName": {
                     "value": "[reference(resourceId('Microsoft.Resources/deployments', variables('vnetName'))).outputs.virtualNetworkName.value]"
                   },
@@ -768,7 +770,7 @@
                     "_generator": {
                       "name": "bicep",
                       "version": "0.6.11.53198",
-                      "templateHash": "1138399486984448227"
+                      "templateHash": "12953393261427160773"
                     }
                   },
                   "parameters": {
@@ -792,12 +794,6 @@
                         "description": "The number of vms to  provision initially in the scale set"
                       }
                     },
-                    "nicIPAddress": {
-                      "type": "string",
-                      "metadata": {
-                        "description": "The IP address of the new AD VM"
-                      }
-                    },
                     "adminUsername": {
                       "type": "string",
                       "metadata": {
@@ -815,13 +811,6 @@
                       "defaultValue": "Standard_B2s",
                       "metadata": {
                         "description": "The size of the VM Created"
-                      }
-                    },
-                    "domainName": {
-                      "type": "string",
-                      "defaultValue": "contoso.local",
-                      "metadata": {
-                        "description": "The full qualified domain name to be created"
                       }
                     },
                     "artifactsLocation": {
@@ -1144,7 +1133,7 @@
                     {
                       "type": "Microsoft.Resources/deployments",
                       "apiVersion": "2020-10-01",
-                      "name": "provisionServer",
+                      "name": "provisionWebServer",
                       "properties": {
                         "expressionEvaluationOptions": {
                           "scope": "inner"
@@ -1192,7 +1181,7 @@
                             "_generator": {
                               "name": "bicep",
                               "version": "0.6.11.53198",
-                              "templateHash": "6608912354711595496"
+                              "templateHash": "17772352377207184509"
                             }
                           },
                           "parameters": {
@@ -1335,7 +1324,7 @@
                                     ]
                                   },
                                   "osProfile": {
-                                    "computerNamePrefix": "[toLower(parameters('vmssName'))]",
+                                    "computerNamePrefix": "[toLower(take(parameters('vmssName'), 10))]",
                                     "adminUsername": "[parameters('adminUsername')]",
                                     "adminPassword": "[parameters('adminPassword')]"
                                   },
@@ -1521,7 +1510,7 @@
             {
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2020-10-01",
-              "name": "[format('{0}_bastion', variables('uniqueName'))]",
+              "name": "[variables('bastionName')]",
               "properties": {
                 "expressionEvaluationOptions": {
                   "scope": "inner"
@@ -1532,7 +1521,7 @@
                     "value": "[parameters('location')]"
                   },
                   "bastionHostName": {
-                    "value": "[format('{0}bastion', variables('uniqueName'))]"
+                    "value": "[variables('bastionName')]"
                   },
                   "bastionSubnetIpPrefix": {
                     "value": "[parameters('bastionSubnetIpPrefix')]"
@@ -1642,7 +1631,7 @@
                   "adminPassword": {
                     "value": "[parameters('adminPassword')]"
                   },
-                  "vmName": {
+                  "virtualMachineName": {
                     "value": "[variables('dcName')]"
                   },
                   "existingVirtualNetworkName": {
@@ -1662,7 +1651,7 @@
                     "_generator": {
                       "name": "bicep",
                       "version": "0.6.11.53198",
-                      "templateHash": "13761812497755191988"
+                      "templateHash": "12697993426093693890"
                     }
                   },
                   "parameters": {
@@ -1678,7 +1667,7 @@
                         "description": "Type of the Storage for disks"
                       }
                     },
-                    "vmName": {
+                    "virtualMachineName": {
                       "type": "string",
                       "defaultValue": "dc",
                       "metadata": {
@@ -1716,27 +1705,6 @@
                         "description": "Admin password"
                       }
                     },
-                    "artifactsLocation": {
-                      "type": "string",
-                      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vmss-automation-dsc/",
-                      "metadata": {
-                        "description": "Path to the nested templates used in this deployment"
-                      }
-                    },
-                    "artifactsLocationSasToken": {
-                      "type": "string",
-                      "defaultValue": "",
-                      "metadata": {
-                        "description": "SAS token to access artifacts location, if required"
-                      }
-                    },
-                    "compileName": {
-                      "type": "string",
-                      "defaultValue": "[guid(resourceGroup().id, deployment().name)]",
-                      "metadata": {
-                        "description": "Unique value to identify compilation job"
-                      }
-                    },
                     "nodeConfigurationName": {
                       "type": "string",
                       "defaultValue": "WindowsIISServerConfig.localhost"
@@ -1760,26 +1728,16 @@
                   },
                   "variables": {
                     "automationAccountName": "[format('DSC-{0}', take(guid(resourceGroup().id), 5))]",
+                    "vmName": "[take(toLower(parameters('virtualMachineName')), 15)]",
                     "nicName": "dscNIC",
                     "imagePublisher": "MicrosoftWindowsServer",
                     "imageOffer": "WindowsServer"
                   },
                   "resources": [
                     {
-                      "type": "Microsoft.Automation/automationAccounts",
-                      "apiVersion": "2021-06-22",
-                      "name": "[variables('automationAccountName')]",
-                      "location": "[parameters('location')]",
-                      "properties": {
-                        "sku": {
-                          "name": "Basic"
-                        }
-                      }
-                    },
-                    {
                       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
                       "apiVersion": "2021-08-01",
-                      "name": "[format('{0}/{1}', parameters('networkSecurityGroupName'), format('{0}-allow-3389', parameters('vmName')))]",
+                      "name": "[format('{0}/{1}', parameters('networkSecurityGroupName'), format('{0}-allow-3389', variables('vmName')))]",
                       "properties": {
                         "priority": 1002,
                         "access": "Allow",
@@ -1816,14 +1774,14 @@
                     {
                       "type": "Microsoft.Compute/virtualMachines",
                       "apiVersion": "2019-12-01",
-                      "name": "[parameters('vmName')]",
+                      "name": "[parameters('virtualMachineName')]",
                       "location": "[parameters('location')]",
                       "properties": {
                         "hardwareProfile": {
                           "vmSize": "[parameters('vmSize')]"
                         },
                         "osProfile": {
-                          "computerName": "[toLower(parameters('vmName'))]",
+                          "computerName": "[variables('vmName')]",
                           "adminUsername": "[parameters('adminUsername')]",
                           "adminPassword": "[parameters('adminPassword')]"
                         },
@@ -1835,7 +1793,7 @@
                             "version": "latest"
                           },
                           "osDisk": {
-                            "name": "[format('{0}_OSDisk', parameters('vmName'))]",
+                            "name": "[format('{0}_OSDisk', variables('vmName'))]",
                             "caching": "ReadWrite",
                             "createOption": "FromImage",
                             "managedDisk": {
@@ -1852,14 +1810,13 @@
                         }
                       },
                       "dependsOn": [
-                        "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]",
-                        "[resourceId('Microsoft.Resources/deployments', 'provisionConfiguration')]"
+                        "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
                       ]
                     },
                     {
                       "type": "Microsoft.Compute/virtualMachines/extensions",
                       "apiVersion": "2019-12-01",
-                      "name": "[format('{0}/{1}', parameters('vmName'), 'Microsoft.Powershell.DSC')]",
+                      "name": "[format('{0}/{1}', parameters('virtualMachineName'), 'Microsoft.Powershell.DSC')]",
                       "location": "[parameters('location')]",
                       "properties": {
                         "publisher": "Microsoft.Powershell",
@@ -1883,7 +1840,7 @@
                             },
                             {
                               "Name": "RegistrationUrl",
-                              "Value": "[reference(resourceId('Microsoft.Automation/automationAccounts', variables('automationAccountName'))).registrationUrl]",
+                              "Value": "[reference(resourceId('Microsoft.Automation/automationAccounts', variables('automationAccountName')), '2021-06-22').registrationUrl]",
                               "TypeName": "System.String"
                             },
                             {
@@ -1910,149 +1867,14 @@
                         }
                       },
                       "dependsOn": [
-                        "[resourceId('Microsoft.Automation/automationAccounts', variables('automationAccountName'))]",
-                        "[resourceId('Microsoft.Resources/deployments', 'provisionConfiguration')]",
-                        "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
-                      ]
-                    },
-                    {
-                      "type": "Microsoft.Resources/deployments",
-                      "apiVersion": "2020-10-01",
-                      "name": "provisionConfiguration",
-                      "properties": {
-                        "expressionEvaluationOptions": {
-                          "scope": "inner"
-                        },
-                        "mode": "Incremental",
-                        "parameters": {
-                          "artifactsLocation": {
-                            "value": "[parameters('artifactsLocation')]"
-                          },
-                          "artifactsLocationSasToken": {
-                            "value": "[parameters('artifactsLocationSasToken')]"
-                          },
-                          "automationAccountName": {
-                            "value": "[variables('automationAccountName')]"
-                          },
-                          "location": {
-                            "value": "[parameters('location')]"
-                          },
-                          "compileName": {
-                            "value": "[parameters('compileName')]"
-                          }
-                        },
-                        "template": {
-                          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                          "contentVersion": "1.0.0.0",
-                          "metadata": {
-                            "_generator": {
-                              "name": "bicep",
-                              "version": "0.6.11.53198",
-                              "templateHash": "2048812493378558945"
-                            }
-                          },
-                          "parameters": {
-                            "artifactsLocation": {
-                              "type": "string"
-                            },
-                            "artifactsLocationSasToken": {
-                              "type": "string"
-                            },
-                            "automationAccountName": {
-                              "type": "string"
-                            },
-                            "location": {
-                              "type": "string"
-                            },
-                            "compileName": {
-                              "type": "string",
-                              "defaultValue": "[guid(resourceGroup().id, deployment().name)]"
-                            }
-                          },
-                          "variables": {
-                            "dscConfigurations": {
-                              "WindowsIISServerConfig": {
-                                "name": "WindowsIISServerConfig",
-                                "description": "minimum viable configuration for a web server role",
-                                "script": "dscConfigurations/WindowsIISServerConfig.ps1"
-                              }
-                            },
-                            "dscResources": {
-                              "xWebAdministration": {
-                                "name": "xWebAdministration",
-                                "url": "https://psg-prod-eastus.azureedge.net/packages/xwebadministration.2.4.0.nupkg"
-                              }
-                            }
-                          },
-                          "resources": [
-                            {
-                              "type": "Microsoft.Automation/automationAccounts",
-                              "apiVersion": "2021-06-22",
-                              "name": "[parameters('automationAccountName')]",
-                              "location": "[parameters('location')]",
-                              "properties": {
-                                "sku": {
-                                  "name": "Basic"
-                                }
-                              }
-                            },
-                            {
-                              "type": "Microsoft.Automation/automationAccounts/modules",
-                              "apiVersion": "2019-06-01",
-                              "name": "[format('{0}/{1}', parameters('automationAccountName'), variables('dscResources').xWebAdministration.name)]",
-                              "location": "[parameters('location')]",
-                              "properties": {
-                                "contentLink": {
-                                  "uri": "[variables('dscResources').xWebAdministration.url]"
-                                }
-                              },
-                              "dependsOn": [
-                                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]"
-                              ]
-                            },
-                            {
-                              "type": "Microsoft.Automation/automationAccounts/configurations",
-                              "apiVersion": "2019-06-01",
-                              "name": "[format('{0}/{1}', parameters('automationAccountName'), variables('dscConfigurations').WindowsIISServerConfig.name)]",
-                              "location": "[parameters('location')]",
-                              "properties": {
-                                "source": {
-                                  "type": "uri",
-                                  "value": "[format('{0}{1}{2}', parameters('artifactsLocation'), variables('dscConfigurations').WindowsIISServerConfig.script, parameters('artifactsLocationSasToken'))]"
-                                }
-                              },
-                              "dependsOn": [
-                                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
-                                "[resourceId('Microsoft.Automation/automationAccounts/modules', parameters('automationAccountName'), variables('dscResources').xWebAdministration.name)]"
-                              ]
-                            },
-                            {
-                              "type": "Microsoft.Automation/automationAccounts/compilationjobs",
-                              "apiVersion": "2019-06-01",
-                              "name": "[format('{0}/{1}', parameters('automationAccountName'), parameters('compileName'))]",
-                              "tags": {},
-                              "properties": {
-                                "configuration": {
-                                  "name": "[variables('dscConfigurations').WindowsIISServerConfig.name]"
-                                },
-                                "parameters": {}
-                              },
-                              "dependsOn": [
-                                "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccountName'))]",
-                                "[resourceId('Microsoft.Automation/automationAccounts/configurations', parameters('automationAccountName'), variables('dscConfigurations').WindowsIISServerConfig.name)]"
-                              ]
-                            }
-                          ]
-                        }
-                      },
-                      "dependsOn": [
-                        "[resourceId('Microsoft.Automation/automationAccounts', variables('automationAccountName'))]"
+                        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
                       ]
                     }
                   ]
                 }
               },
               "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments', variables('frontendName'))]",
                 "[resourceId('Microsoft.Resources/deployments', variables('vnetName'))]"
               ]
             },
@@ -2060,7 +1882,7 @@
               "condition": "[parameters('vpnEnabled')]",
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2020-10-01",
-              "name": "[format('{0}_vpn', variables('uniqueName'))]",
+              "name": "[variables('vpnName')]",
               "properties": {
                 "expressionEvaluationOptions": {
                   "scope": "inner"
@@ -2217,7 +2039,7 @@
               "condition": "[parameters('backupEnabled')]",
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2020-10-01",
-              "name": "[format('{0}_backup', variables('uniqueName'))]",
+              "name": "[variables('backupName')]",
               "properties": {
                 "expressionEvaluationOptions": {
                   "scope": "inner"
@@ -2228,7 +2050,7 @@
                     "value": "[parameters('location')]"
                   },
                   "vaultName": {
-                    "value": "[format('{0}backup', variables('uniqueName'))]"
+                    "value": "[variables('backupName')]"
                   },
                   "vmNames": {
                     "value": [
@@ -2337,7 +2159,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.6.11.53198",
-              "templateHash": "16723422836907183922"
+              "templateHash": "14545199930156203081"
             }
           },
           "parameters": {
@@ -2372,12 +2194,12 @@
             }
           },
           "variables": {
-            "uniqueName": "[substring(format('{0}dev{1}', parameters('name'), uniqueString(resourceGroup().id)), 0, 10)]",
+            "uniqueName": "[take(format('{0}dev{1}', take(parameters('name'), 5), uniqueString(resourceGroup().id)), 11)]",
             "sqlVmName": "[format('{0}sql', variables('uniqueName'))]",
             "vnetName": "[format('{0}vnet', variables('uniqueName'))]",
+            "storageName": "[format('{0}storage', variables('uniqueName'))]",
             "frontendName": "[format('{0}web', variables('uniqueName'))]",
-            "bastionName": "[format('{0}bastion', variables('uniqueName'))]",
-            "storageName": "[format('{0}storage', variables('uniqueName'))]"
+            "bastionName": "[format('{0}bastion', variables('uniqueName'))]"
           },
           "resources": [
             {
@@ -2595,7 +2417,7 @@
                     "_generator": {
                       "name": "bicep",
                       "version": "0.6.11.53198",
-                      "templateHash": "6898807233921415123"
+                      "templateHash": "1700138071535369743"
                     }
                   },
                   "parameters": {
@@ -2729,8 +2551,9 @@
                     }
                   },
                   "variables": {
-                    "networkInterfaceName": "[format('{0}-nic', parameters('virtualMachineName'))]",
-                    "networkSecurityGroupName": "[format('{0}-nsg', parameters('virtualMachineName'))]",
+                    "vmName": "[take(parameters('virtualMachineName'), 15)]",
+                    "networkInterfaceName": "[format('{0}-nic', variables('vmName'))]",
+                    "networkSecurityGroupName": "[format('{0}-nsg', variables('vmName'))]",
                     "networkSecurityGroupRules": [
                       {
                         "name": "RDP",
@@ -2746,7 +2569,7 @@
                         }
                       }
                     ],
-                    "publicIpAddressName_var": "[format('{0}-publicip-{1}', parameters('virtualMachineName'), uniqueString(parameters('virtualMachineName')))]",
+                    "publicIpAddressName_var": "[format('{0}-publicip-{1}', variables('vmName'), uniqueString(variables('vmName')))]",
                     "publicIpAddressType": "Dynamic",
                     "publicIpAddressSku": "Basic",
                     "diskConfigurationType": "NEW",
@@ -2861,7 +2684,7 @@
                           ]
                         },
                         "osProfile": {
-                          "computerName": "[parameters('virtualMachineName')]",
+                          "computerName": "[variables('vmName')]",
                           "adminUsername": "[parameters('adminUsername')]",
                           "adminPassword": "[parameters('adminPassword')]",
                           "windowsConfiguration": {
@@ -2939,7 +2762,7 @@
                   "adminPassword": {
                     "value": "[parameters('adminPassword')]"
                   },
-                  "vmName": {
+                  "virtualMachineName": {
                     "value": "[variables('frontendName')]"
                   },
                   "existingVirtualNetworkName": {
@@ -2959,7 +2782,7 @@
                     "_generator": {
                       "name": "bicep",
                       "version": "0.6.11.53198",
-                      "templateHash": "4488770696169775470"
+                      "templateHash": "7867171962179871610"
                     }
                   },
                   "parameters": {
@@ -2975,7 +2798,7 @@
                         "description": "Type of the Storage for disks"
                       }
                     },
-                    "vmName": {
+                    "virtualMachineName": {
                       "type": "string",
                       "defaultValue": "iis",
                       "metadata": {
@@ -3056,6 +2879,7 @@
                     }
                   },
                   "variables": {
+                    "vmName": "[take(toLower(parameters('virtualMachineName')), 15)]",
                     "automationAccountName": "[format('DSC-{0}', take(guid(resourceGroup().id), 5))]",
                     "publicIPAddressType": "Dynamic",
                     "publicIPAddressName": "dscPubIP",
@@ -3087,7 +2911,7 @@
                     {
                       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
                       "apiVersion": "2021-08-01",
-                      "name": "[format('{0}/{1}', parameters('networkSecurityGroupName'), format('{0}-allow-80', parameters('vmName')))]",
+                      "name": "[format('{0}/{1}', parameters('networkSecurityGroupName'), format('{0}-allow-80', variables('vmName')))]",
                       "properties": {
                         "priority": 1000,
                         "access": "Allow",
@@ -3105,7 +2929,7 @@
                     {
                       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
                       "apiVersion": "2021-08-01",
-                      "name": "[format('{0}/{1}', parameters('networkSecurityGroupName'), format('{0}-allow-443', parameters('vmName')))]",
+                      "name": "[format('{0}/{1}', parameters('networkSecurityGroupName'), format('{0}-allow-443', variables('vmName')))]",
                       "properties": {
                         "priority": 1001,
                         "access": "Allow",
@@ -3123,7 +2947,7 @@
                     {
                       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
                       "apiVersion": "2021-08-01",
-                      "name": "[format('{0}/{1}', parameters('networkSecurityGroupName'), format('{0}-allow-3389', parameters('vmName')))]",
+                      "name": "[format('{0}/{1}', parameters('networkSecurityGroupName'), format('{0}-allow-3389', variables('vmName')))]",
                       "properties": {
                         "priority": 1002,
                         "access": "Allow",
@@ -3166,14 +2990,14 @@
                     {
                       "type": "Microsoft.Compute/virtualMachines",
                       "apiVersion": "2019-12-01",
-                      "name": "[parameters('vmName')]",
+                      "name": "[parameters('virtualMachineName')]",
                       "location": "[parameters('location')]",
                       "properties": {
                         "hardwareProfile": {
                           "vmSize": "[parameters('vmSize')]"
                         },
                         "osProfile": {
-                          "computerName": "[toLower(parameters('vmName'))]",
+                          "computerName": "[variables('vmName')]",
                           "adminUsername": "[parameters('adminUsername')]",
                           "adminPassword": "[parameters('adminPassword')]"
                         },
@@ -3185,7 +3009,7 @@
                             "version": "latest"
                           },
                           "osDisk": {
-                            "name": "[format('{0}_OSDisk', parameters('vmName'))]",
+                            "name": "[format('{0}_OSDisk', variables('vmName'))]",
                             "caching": "ReadWrite",
                             "createOption": "FromImage",
                             "managedDisk": {
@@ -3209,7 +3033,7 @@
                     {
                       "type": "Microsoft.Compute/virtualMachines/extensions",
                       "apiVersion": "2021-11-01",
-                      "name": "[format('{0}/{1}', parameters('vmName'), 'Microsoft.Powershell.DSC')]",
+                      "name": "[format('{0}/{1}', parameters('virtualMachineName'), 'Microsoft.Powershell.DSC')]",
                       "location": "[parameters('location')]",
                       "properties": {
                         "publisher": "Microsoft.Powershell",
@@ -3262,7 +3086,7 @@
                       "dependsOn": [
                         "[resourceId('Microsoft.Automation/automationAccounts', variables('automationAccountName'))]",
                         "[resourceId('Microsoft.Resources/deployments', 'provisionConfiguration')]",
-                        "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+                        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
                       ]
                     },
                     {

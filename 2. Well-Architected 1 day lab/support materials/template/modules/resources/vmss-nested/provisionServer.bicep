@@ -109,7 +109,7 @@ resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2018-10-01' = {
         ]
       }
       osProfile: {
-        computerNamePrefix: toLower(vmssName)
+        computerNamePrefix: toLower(take(vmssName,10))
         adminUsername: adminUsername
         adminPassword: adminPassword
       }

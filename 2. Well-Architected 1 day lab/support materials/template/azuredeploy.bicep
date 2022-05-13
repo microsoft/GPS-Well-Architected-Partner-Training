@@ -28,7 +28,7 @@ resource prodrg 'Microsoft.Resources/resourceGroups@2021-01-01' = if(prodDeploy)
   name: prodRGName
   location: location
   tags:{
-    'environment': 'dev'
+    'environment': 'prod'
   }
 }
 
@@ -36,7 +36,7 @@ resource devrg 'Microsoft.Resources/resourceGroups@2021-01-01' = if(devDeploy) {
   name: devRGName
   location: location
   tags: {
-    'environment': 'prod'
+    'environment': 'dev'
   }
 }
 

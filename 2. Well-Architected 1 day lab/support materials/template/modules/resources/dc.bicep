@@ -7,7 +7,7 @@
 param diskType string = 'StandardSSD_LRS'
 
 @description('Name of the VM')
-param vmName string = 'dc'
+param virtualMachineName string = 'dc'
 
 @description('Size of the VM')
 param vmSize string = 'Standard_D2s_v3'
@@ -27,15 +27,6 @@ param adminUsername string
 @secure()
 param adminPassword string
 
-@description('Path to the nested templates used in this deployment')
-param artifactsLocation string = 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vmss-automation-dsc/'
-
-@description('SAS token to access artifacts location, if required')
-param artifactsLocationSasToken string = ''
-
-@description('Unique value to identify compilation job')
-param compileName string = guid(resourceGroup().id, deployment().name)
-
 //TODO: create Windows DCServer config
 param nodeConfigurationName string = 'WindowsIISServerConfig.localhost'
 
@@ -46,8 +37,10 @@ param existingVirtualNetworkName string
 param existingSubnetName string
 param networkSecurityGroupName string
 
+//todo extract automation script
 var automationAccountName = 'DSC-${take(guid(resourceGroup().id), 5)}'
 
+var vmName = take(toLower(virtualMachineName),15)
 var nicName = 'dscNIC'
 var imagePublisher = 'MicrosoftWindowsServer'
 var imageOffer = 'WindowsServer'
@@ -61,28 +54,8 @@ resource subnet 'Microsoft.Network/virtualNetworks/subnets@2020-05-01' existing 
   name: existingSubnetName
 }
 
-resource automationAccount 'Microsoft.Automation/automationAccounts@2021-06-22' = {
+resource automationAccount 'Microsoft.Automation/automationAccounts@2021-06-22' existing = {
   name: automationAccountName
-  location: location
-  properties: {
-    sku: {
-      name: 'Basic'
-    }
-  }
-}
-
-module provisionConfiguration 'vmss-nested/provisionConfiguration.bicep' = {
-  name: 'provisionConfiguration'
-  params: {
-    artifactsLocation: artifactsLocation
-    artifactsLocationSasToken: artifactsLocationSasToken
-    automationAccountName: automationAccountName
-    location: location
-    compileName: compileName
-  }
-  dependsOn: [
-    automationAccount
-  ]
 }
 
 resource nsg 'Microsoft.Network/networkSecurityGroups@2020-05-01' existing = {
@@ -126,14 +99,14 @@ resource nic 'Microsoft.Network/networkInterfaces@2020-05-01' = {
 }
 
 resource vm 'Microsoft.Compute/virtualMachines@2019-12-01' = {
-  name: vmName
+  name: virtualMachineName
   location: location
   properties: {
     hardwareProfile: {
       vmSize: vmSize
     }
     osProfile: {
-      computerName: toLower(vmName)
+      computerName: vmName
       adminUsername: adminUsername
       adminPassword: adminPassword
     }
@@ -162,7 +135,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2019-12-01' = {
     }
   }
   dependsOn: [
-    provisionConfiguration
+    automationAccount
   ]
 }
 
@@ -220,6 +193,6 @@ resource vmExtension 'Microsoft.Compute/virtualMachines/extensions@2019-12-01' =
     }
   }
   dependsOn: [
-    provisionConfiguration
+    automationAccount
   ]
 }

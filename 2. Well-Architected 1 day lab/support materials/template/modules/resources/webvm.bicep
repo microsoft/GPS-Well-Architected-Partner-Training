@@ -7,7 +7,7 @@
 param diskType string = 'StandardSSD_LRS'
 
 @description('Name of the VM')
-param vmName string = 'iis'
+param virtualMachineName string = 'iis'
 
 @description('Size of the VM')
 param vmSize string = 'Standard_D2s_v3'
@@ -45,6 +45,7 @@ param existingVirtualNetworkName string
 param existingSubnetName string
 param networkSecurityGroupName string
 
+var vmName=take(toLower(virtualMachineName),15)
 var automationAccountName = 'DSC-${take(guid(resourceGroup().id), 5)}'
 
 var publicIPAddressType = 'Dynamic'
@@ -167,14 +168,14 @@ resource nic 'Microsoft.Network/networkInterfaces@2020-05-01' = {
 }
 
 resource vm 'Microsoft.Compute/virtualMachines@2019-12-01' = {
-  name: vmName
+  name: virtualMachineName
   location: location
   properties: {
     hardwareProfile: {
       vmSize: vmSize
     }
     osProfile: {
-      computerName: toLower(vmName)
+      computerName: vmName
       adminUsername: adminUsername
       adminPassword: adminPassword
     }

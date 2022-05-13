@@ -7,8 +7,8 @@ param vmssName string = 'srv'
 @description('The number of vms to  provision initially in the scale set')
 param instanceCount int = 2
 
-@description('The IP address of the new AD VM')
-param nicIPAddress string
+// @description('The IP address of the new AD VM')
+// param nicIPAddress string
 
 @description('The name of the Administrator of the new VM and Domain')
 param adminUsername string
@@ -20,8 +20,8 @@ param adminPassword string
 @description('The size of the VM Created')
 param VMSize string = 'Standard_B2s'
 
-@description('The full qualified domain name to be created')
-param domainName string = 'contoso.local'
+// @description('The full qualified domain name to be created')
+// param domainName string = 'contoso.local'
 
 @description('Path to the nested templates used in this deployment')
 param artifactsLocation string = 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vmss-automation-dsc/'
@@ -32,6 +32,8 @@ param artifactsLocationSasToken string = ''
 @description('Unique value to identify compilation job')
 param compileName string = guid(resourceGroup().id, deployment().name)
 
+
+//todo: extract automation parameters to a separate file
 var automationAccountName = 'DSC-${take(guid(resourceGroup().id), 5)}'
 var publicIPAddressName = 'PIP'
 var publicIPAddressType = 'Dynamic'
@@ -62,7 +64,7 @@ module provisionLB 'vmss-nested/provisionLB.bicep' = {
 }
 
 module provisionServer 'vmss-nested/provisionServer.bicep' = {
-  name: 'provisionServer'
+  name: 'provisionWebServer'
   params: {
     location: location
     vmssName: vmssName

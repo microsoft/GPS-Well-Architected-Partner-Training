@@ -11,12 +11,12 @@ param addressPrefix string = '10.1.0.0/16'
 param subnetPrefix string = '10.1.0.0/24'
 param bastionSubnetIpPrefix string = '10.1.2.0/24'
 
-var uniqueName = substring('${name}dev${uniqueString(resourceGroup().id)}',0,10)
+var uniqueName = take('${take(name,5)}dev${uniqueString(resourceGroup().id)}',11)
 var sqlVmName='${uniqueName}sql'
 var vnetName= '${uniqueName}vnet'
+var storageName='${uniqueName}storage'
 var frontendName='${uniqueName}web'
 var bastionName='${uniqueName}bastion'
-var storageName='${uniqueName}storage'
 module vNet 'resources/vnet.bicep' = {
   name: vnetName
   params: {
@@ -49,7 +49,7 @@ module frontend 'resources/webvm.bicep' = {
     location: location
     adminUsername: adminUsername
     adminPassword: adminPassword
-    vmName: frontendName
+    virtualMachineName: frontendName
     existingVirtualNetworkName: vNet.outputs.virtualNetworkName
     existingSubnetName: vNet.outputs.defaultSubnetName
     networkSecurityGroupName: vNet.outputs.networkSecurityGroupName

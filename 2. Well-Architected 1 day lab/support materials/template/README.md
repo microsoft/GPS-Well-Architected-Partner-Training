@@ -11,6 +11,7 @@ It is parameterized with the following parameters:
 * devDeploy: a boolean value to set to false when you don't want to deploy the development resources. Default value `true`.
 * prodDeploy: a boolean value to set to false when you don't want to deploy the production resources. Default value `true`.
 * vpnEnabled: set it to false to avoid the deployment of the VPN Gateway in production. It takes more than 15 minutes to deploy, so setting it to false it is useful when testing the template. Default `true`.
+* backupEnabled: set it to false to avoid the deployment of the backup resources in the production environment. Default `true`.
 
 The command to deploy the resources is:
 
