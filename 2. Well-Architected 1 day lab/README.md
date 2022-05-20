@@ -83,7 +83,12 @@ The claims application has this characteristics:
 ![Claims application](support%20materials/arch2.png "The claims application is deployed in West Europe, with a single VM running a single SQL Server. ")
 
 This architecture can be deployed (without the actual application) with the provided template:
+
 [![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FGPS-Well-Architected-Partner-Training%2Fmain%2F2.%2520Well-Architected%25201%2520day%2520lab%2Fazuredeploy.json)
+
+> :warning: This deployment may cost over **$5000/month**,
+so take care to set limits to your Azure consumption in the subscription
+and to stop or delete all the deployed resources to avoid high costs.
 
 ### Additional facts
 
