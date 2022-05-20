@@ -35,7 +35,7 @@ information using the Claims Application.
 They use **legacy tools** for monitoring, governance, security and deployments.
 * The **AppDev department’s skill set is dated**, predominantly focused on client/server development.
 * The organization has an **Internet-based claims application** they recently deployed into Azure.
-* The current design relies on a single SQL Server VM and a single AD VM. Web servers use a loadbalancer with TCP probe.
+* The current design relies on a single SQL Server VM and a single AD VM. Web servers use a load-balancer with TCP probe.
 Branch offices are connected to Azure using Site-to-Site VPNs with on-site RRAS server.
 * Customers have reported **reliability issues** with the claims application. Failures were correlated to
 **service health issues with the SQL VM**.
@@ -83,7 +83,7 @@ The claims application has this characteristics:
 ![Claims application](support%20materials/arch2.png "The claims application is deployed in West Europe, with a single VM running a single SQL Server. ")
 
 This architecture can be deployed (without the actual application) with the provided template:
-[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FGPS-Well-Architected-Partner-Training-%2Fmain%2F2.%20Well-Architected%201%20day%20lab%2Fazuredeploy.json)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FGPS-Well-Architected-Partner-Training%2Fmain%2F2.%2520Well-Architected%25201%2520day%2520lab%2Fazuredeploy.json)
 
 ### Additional facts
 
