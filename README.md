@@ -81,7 +81,6 @@ click 5si.b "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/2.b Wel
 click 4isv "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/2.b Well-Architected Process%20Guide" "WAF Process Guide"
 ```
 
-
 ## Description
 
 The [Well-Architected Framework][WAF-Intro] is a well-defined process for running architecture reviews and provide your customers a consistent list of recommendations for enhancing their workloads in Azure.
@@ -115,7 +114,6 @@ This is a step-by-step guide to help you run a Well-Architected assessment and p
 ### [Well-Architected Offering][WAF-Offering]
 
 As a Microsoft Partner you want to create new services offers in the Azure Marketplace. You can use the [Well-Architected Offering][WAF-Offering] to learn how to create a new offering in the Azure Marketplace.
-
 
 ## License
 

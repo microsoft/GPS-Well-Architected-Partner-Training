@@ -1,1 +1,0 @@
-az deployment sub create --location northeurope -n northdeploy -f .\azuredeploy.bicep -p '@params.json'
