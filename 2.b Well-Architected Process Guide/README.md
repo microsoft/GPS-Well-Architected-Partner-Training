@@ -1,11 +1,11 @@
 # Well-Architected processes and tools for ISV and self-serve guide
 
-> **⚠️ Work in progress**
-> <br>This guide is still incomplete, but is based on the information you will find in the [Workshop][waf-workshop].
+> **⚠️ Work in progress** \
+This guide is still incomplete, but is based on the information you will find in the [Workshop][waf-workshop].
 
 The Well-Architected Framework contains a set of processes and tools to help customers review and enhance their workloads on Azure. You can find a detailed explanation on how to use the framework in the [Well-Architected Workshop][waf-workshop].
 
-This guide is intended to provide you with a step-by-step process to review the architecture of your own workload, and build a roadmap with the recommendations you will get after running the assessment. 
+This guide is intended to provide you with a step-by-step process to review the architecture of your own workload, and build a roadmap with the recommendations you will get after running the assessment.
 
 In the Well-Architected framework process we define four phases:
 
@@ -38,7 +38,7 @@ You should have already seen in the [Well-Architected Introduction][waf-introduc
 | **Field** | **Description** |
 | --- | --- |
 | **Name** | The actual name for your workload|
-| **Description** | A short description of your workload in three paragraphs:<br>* The business case it adresses<br>* The technology it is using<br>* The team and resources it needs |
+| **Description** | A short description of your workload in three paragraphs:<br>*The business case it adresses<br>* The technology it is using<br>* The team and resources it needs |
 
 ### Define the Scope
 
@@ -46,11 +46,11 @@ Doing the complete assessment of your workload can be a long process and take a 
 
 **Pick at most three** of the five pillars of the Well-Architected Framework:
 
-- [x] Cost optimization
-- [ ] Performance Efficiency
-- [ ] Reliability
-- [ ] Operational Excellence
-- [ ] Security
+* [x] Cost optimization
+* [ ] Performance Efficiency
+* [ ] Reliability
+* [ ] Operational Excellence
+* [ ] Security
 
 > 🆘 If you are not sure, start with the Cost Optimization one. It will have an easily measurable impact in terms of savings, and the budget margin you will gain could serve to enhance the other pillars afterward.
 
@@ -62,14 +62,14 @@ You will also need a read-only access to the workload resources on Azure, to con
 
 Here's a checklist of what you need before starting the assessment:
 
-- [ ] List of the people who will be involved in the assessment
-- [ ] Account with read access to the workload's subscription
-- [ ] Architecture diagrams of the current workload
-- [ ] If available, the roadmap for the next version
-- [ ] Prepare and block the meetings with all the people involved
-    - [ ] First two days with the owner and architects
-    - [ ] Third and fourth days to analyze the results and write-down the recommendations
-    - [ ] Fifth day to present the results to everyone and agree on the next steps
+* [ ] List of the people who will be involved in the assessment
+* [ ] Account with read access to the workload's subscription
+* [ ] Architecture diagrams of the current workload
+* [ ] If available, the roadmap for the next version
+* [ ] Prepare and block the meetings with all the people involved
+  * [ ] First two days with the owner and architects
+  * [ ] Third and fourth days to analyze the results and write-down the recommendations
+  * [ ] Fifth day to present the results to everyone and agree on the next steps
 
 ## Select the type of Assessment you want to do
 
@@ -110,30 +110,29 @@ A-->B-->C-->D-->E
 
 Now that you have all the prerequisites, you can start with the assessment. But first, let's review again that you have all the information:
 
-- [ ] The Workload is defined
-- [ ] The scope of the assessment is clear
-- [ ] You have access to the resources in Azure
-- [ ] You have prepared the agenda and the meetings
+* [ ] The Workload is defined
+* [ ] The scope of the assessment is clear
+* [ ] You have access to the resources in Azure
+* [ ] You have prepared the agenda and the meetings
 
 All right, let's [start with the review][start]. If you came back here but you have already started, continue in any of these steps:
 
 * Discover
-    * [Workload mind map][01.workload]
-    * [Information collection][02.collection]
-        * Well-Architected Assessment
-        * CCO Dashboard
+  * [Workload mind map][01.workload]
+  * [Information collection][02.collection]
+    * Well-Architected Assessment
+    * CCO Dashboard
 * Analyze
-    * Cost Optimization
-    * Security
-    * Reliability
-    * Performance Efficiency
-    * Operational Excellence
+  * Cost Optimization
+  * Security
+  * Reliability
+  * Performance Efficiency
+  * Operational Excellence
 * Prioritize
-    * Well-Architected tools
-    * Priority Matrix
-    * Write the roadmap
+  * Well-Architected tools
+  * Priority Matrix
+  * Write the roadmap
 * Present the results
-
 
 [start]: ./steps/01.Workload.md
 [01.workload]: ./steps/01.Workload.md

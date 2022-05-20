@@ -1,5 +1,4 @@
-How to create a Well-Architected Offering in the Azure Marketplace
-===
+# How to create a Well-Architected Offering in the Azure Marketplace
 
 The next step in your Well-Architected journey is to put your knowledge of Azure Marketplace offerings into practice and create a Well-Architected Offering.
 
@@ -13,7 +12,6 @@ In this section you need to select Azure as Primary Product and select up to 3 S
 
 ![properties]
 
- 
 ### Offer listing
 
 Remember to create a name with the format “Name: duration – type”, you will usually create one with a name like “Well-Architected: n-day assessment”. In the Offer listing it is important to have a detailed description, and it is recommended to include an agenda when it is a multi-day event. Add also examples of the deliverables of the assessment or workshop that you will deliver to the customer.
@@ -22,7 +20,7 @@ Remember to create a name with the format “Name: duration – type”, you wil
 
 Set the duration accordingly:
 
-![duration] 
+![duration]
 
 And carefully review the materials and supporting documents you are uploading.
 
@@ -45,11 +43,10 @@ This section is extremely important to allow us to nominate the listing as a CAF
 [Well-Architected Service: 5-Days Assessment][inetum-example]
 
 ![examples3]
- 
+
 ## Next Step
 
 After the offer is published, check with your Microsoft contact.
-
 
 [planoffer]: https://docs.microsoft.com/azure/marketplace/plan-consulting-service-offer#eligibility-requirements
 [bjss-example]: https://azuremarketplace.microsoft.com/en-US/marketplace/consulting-services/bjss.bjss-waf

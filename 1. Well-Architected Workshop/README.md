@@ -6,14 +6,14 @@ This is a CSA-Led training workshop for software architects and pre-sales engine
 
 * What is the Well-Architected Framework?
 * Well-Architected Reviews
-    * Well-Architected Process
-    * Tools
+  * Well-Architected Process
+  * Tools
 * The 5 pillar details
-    * Cost optimization
-    * Operations Excellence
-    * Performance
-    * Reliability
-    * Security
+  * Cost optimization
+  * Operations Excellence
+  * Performance
+  * Reliability
+  * Security
 * Remediation Phase
 * Expected outcome
 
@@ -28,7 +28,6 @@ You can find in this folder the [Well-Architected Workshop full presentation][pr
 * [Architecture center](https://aka.ms/architecture)
 * [Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark)
 
-
 ## Tools
 
 * [Azure Well-Architected Review](https://aka.ms/architecture/review)
@@ -40,7 +39,5 @@ You can find in this folder the [Well-Architected Workshop full presentation][pr
 ## Next step
 
 Put these lessons into practice with the [Well-Architected Lab](../2.%20Well-Architected%201%20day%20lab)
-
-
 
 [presentation]: Azure%20Well-Architected%20Workshop.pdf
