@@ -121,20 +121,30 @@ All right, let's [start with the review][start]. If you came back here but you h
   * [Workload mind map][01.workload]
   * [Information collection][02.collection]
 * Analyze
-  * Cost Optimization
-  * Security
-  * Reliability
-  * Performance Efficiency
-  * Operational Excellence
+  * [Cost Optimization][3]
+  * [Security][3.B]
+  * [Reliability][3.D]
+  * [Performance Efficiency][3.E]
+  * [Operational Excellence][3.F]
 * Prioritize
-  * Well-Architected tools
-  * Priority Matrix
-  * Write the roadmap
-* Present the results
+  * [Priority Matrix][4]
+  * [Write the roadmap][5]
+* [Present the results][6]
 
 [start]: ./steps/01.Workload.md
 [01.workload]: ./steps/01.Workload.md
 [02.collection]: ./steps/02.Collection.md
+
+[1]: 01.Workload.md
+[2]: 02.Collection.md
+[3]: 03.A.CostOptimization.md
+[3.B]: 03.B.Security.md
+[3.C]: 03.C.Reliability.md
+[3.D]: 03.D.Performance.md
+[3.E]: 03.E.Operations.md
+[4]: 04.Prioritize.md
+[5]: 05.Roadmap
+[6]: 06.Finalize.md
 
 [waf-introduction]: ../0.%20Well-Architected%20Introduction
 [waf-review]: https://docs.microsoft.com/en-us/assessments/
