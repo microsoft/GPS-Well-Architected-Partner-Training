@@ -18,6 +18,7 @@ flowchart LR;
     subgraph Remediate
     Optimize;
     end
+    Review
 ```
 
 In this guide we will focus on the three first phases belonging to the Review subset.
@@ -115,36 +116,32 @@ Now that you have all the prerequisites, you can start with the assessment. But 
 * [ ] You have access to the resources in Azure
 * [ ] You have prepared the agenda and the meetings
 
-All right, let's [start with the review][start]. If you came back here but you have already started, continue in any of these steps:
+All right, let's [start with the review][1]. If you came back here but you have already started, continue in any of these steps:
 
 * Discover
-  * [Workload mind map][01.workload]
-  * [Information collection][02.collection]
+  * [Workload mind map][1]
+  * [Information collection][2]
 * Analyze
   * [Cost Optimization][3]
   * [Security][3.B]
-  * [Reliability][3.D]
-  * [Performance Efficiency][3.E]
-  * [Operational Excellence][3.F]
+  * [Reliability][3.C]
+  * [Performance Efficiency][3.D]
+  * [Operational Excellence][3.E]
 * Prioritize
   * [Priority Matrix][4]
   * [Write the roadmap][5]
 * [Present the results][6]
 
-[start]: ./steps/01.Workload.md
-[01.workload]: ./steps/01.Workload.md
-[02.collection]: ./steps/02.Collection.md
-
-[1]: 01.Workload.md
-[2]: 02.Collection.md
-[3]: 03.A.CostOptimization.md
-[3.B]: 03.B.Security.md
-[3.C]: 03.C.Reliability.md
-[3.D]: 03.D.Performance.md
-[3.E]: 03.E.Operations.md
-[4]: 04.Prioritize.md
-[5]: 05.Roadmap
-[6]: 06.Finalize.md
+[1]: ./steps/01.Workload.md
+[2]: ./steps/02.Collection.md
+[3]: ./steps/03.A.CostOptimization.md
+[3.B]: ./steps/03.B.Security.md
+[3.C]: ./steps/03.C.Reliability.md
+[3.D]: ./steps/03.D.Performance.md
+[3.E]: ./steps/03.E.Operations.md
+[4]: ./steps/04.Prioritize.md
+[5]: ./steps/05.Roadmap
+[6]: ./steps/06.Finalize.md
 
 [waf-introduction]: ../0.%20Well-Architected%20Introduction
 [waf-review]: https://docs.microsoft.com/en-us/assessments/
