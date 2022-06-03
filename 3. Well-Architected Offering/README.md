@@ -36,6 +36,10 @@ This section is extremely important to allow us to nominate the listing as a CAF
 
 ![examples]
 
+[Well Architected Framework Assessment (5-day)][nttdata-example]
+
+![examples4]
+
 [Well Architecture Framework: 2-Wk Assessment – Microsoft Azure Marketplace][tokiota-example]
 
 ![examples2]
@@ -53,11 +57,13 @@ After the offer is published, check with your Microsoft contact.
 [caf-listing]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_CwR5yfKO9GnxfeSdkJMahUQjZOVEJZWDQzWUczU082UFZTNTc0VDFaSS4u&wdLOR=cB54E1B5D-2AD0-4A3A-834E-543086B11224
 [inetum-example]: https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/inetumrealdolmen_apps-infra.wafmgd
 [tokiota-example]: https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tokiota.tkt-sec-waf?page=1&search=waf
+[nttdata-example]: https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/everisconsulting.well_architected_framework_assessment-5-day?tab=Overview
 
 [cosell]: ./images/offer_cosell.png
 [duration]: ./images/offer_duration.png
 [examples]: ./images/offer_examples.png
 [examples2]: ./images/offer_examples2.png
 [examples3]: ./images/offer_examples3.png
+[examples4]: ./images/offer_examples4.png
 [listing]: ./images/offer_listing.png
 [properties]: ./images/offer_properties.png "Set Azure as primary product"
