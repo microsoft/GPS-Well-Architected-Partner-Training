@@ -1,6 +1,6 @@
 # Well-Architected processes and tools for ISV and self-serve guide
 
-> **:warning: Work in progress** \
+> :warning:**Work in progress** \
 This guide is still incomplete, but is based on the information you will find in the [Workshop][waf-workshop].
 
 The Well-Architected Framework contains a set of processes and tools to help customers review and enhance their workloads on Azure. You can find a detailed explanation on how to use the framework in the [Well-Architected Workshop][waf-workshop].
