@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.6.11.53198",
-      "templateHash": "5778719159210798633"
+      "version": "0.7.4.23292",
+      "templateHash": "10074584210818871574"
     }
   },
   "parameters": {
@@ -110,8 +110,8 @@
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.6.11.53198",
-              "templateHash": "18292618483642524241"
+              "version": "0.7.4.23292",
+              "templateHash": "6553948147175848728"
             }
           },
           "parameters": {
@@ -222,8 +222,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "16224549864217191260"
+                      "version": "0.7.4.23292",
+                      "templateHash": "17910528836141752574"
                     }
                   },
                   "parameters": {
@@ -410,8 +410,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "1700138071535369743"
+                      "version": "0.7.4.23292",
+                      "templateHash": "4952391875327123793"
                     }
                   },
                   "parameters": {
@@ -534,10 +534,14 @@
                     },
                     "storageAccountType": {
                       "type": "string",
-                      "defaultValue": "StandardSSD_ZRS",
+                      "defaultValue": "Standard_GRS",
                       "metadata": {
                         "description": "Type of strage account to use"
                       }
+                    },
+                    "storageAccountKind": {
+                      "type": "string",
+                      "defaultValue": "Storage"
                     },
                     "storageDiskSize": {
                       "type": "int",
@@ -575,6 +579,7 @@
                       "caching": "ReadOnly",
                       "writeAcceleratorEnabled": false,
                       "storageAccountType": "[parameters('storageAccountType')]",
+                      "storageAccountKind": "[parameters('storageAccountKind')]",
                       "diskSizeGB": "[parameters('storageDiskSize')]"
                     },
                     "tempDbPath": "D:\\SQLTemp"
@@ -632,6 +637,27 @@
                       ]
                     },
                     {
+                      "type": "Microsoft.Storage/storageAccounts",
+                      "apiVersion": "2021-09-01",
+                      "name": "[format('{0}stg', parameters('virtualMachineName'))]",
+                      "location": "[parameters('location')]",
+                      "sku": {
+                        "name": "[parameters('storageAccountType')]"
+                      },
+                      "kind": "[parameters('storageAccountKind')]"
+                    },
+                    {
+                      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+                      "apiVersion": "2021-01-01",
+                      "name": "[format('{0}/default/vhds', format('{0}stg', parameters('virtualMachineName')))]",
+                      "properties": {
+                        "publicAccess": "None"
+                      },
+                      "dependsOn": [
+                        "[resourceId('Microsoft.Storage/storageAccounts', format('{0}stg', parameters('virtualMachineName')))]"
+                      ]
+                    },
+                    {
                       "type": "Microsoft.Compute/virtualMachines",
                       "apiVersion": "2021-11-01",
                       "name": "[parameters('virtualMachineName')]",
@@ -651,16 +677,18 @@
                                 "caching": "[if(greaterOrEquals(range(0, parameters('sqlDataDisksCount'))[copyIndex('dataDisks')], parameters('sqlDataDisksCount')), 'None', variables('dataDisks').caching)]",
                                 "writeAcceleratorEnabled": "[variables('dataDisks').writeAcceleratorEnabled]",
                                 "diskSizeGB": "[variables('dataDisks').diskSizeGB]",
-                                "managedDisk": {
-                                  "storageAccountType": "[variables('dataDisks').storageAccountType]"
+                                "name": "[format('{0}datadisk{1}', parameters('virtualMachineName'), range(0, parameters('sqlDataDisksCount'))[copyIndex('dataDisks')])]",
+                                "vhd": {
+                                  "uri": "[format('{0}vhds/datadisk{1}.vhd', reference(resourceId('Microsoft.Storage/storageAccounts', format('{0}stg', parameters('virtualMachineName')))).primaryEndpoints.blob, range(0, parameters('sqlDataDisksCount'))[copyIndex('dataDisks')])]"
                                 }
                               }
                             }
                           ],
                           "osDisk": {
                             "createOption": "FromImage",
-                            "managedDisk": {
-                              "storageAccountType": "Premium_LRS"
+                            "name": "[format('{0}osdisk', parameters('virtualMachineName'))]",
+                            "vhd": {
+                              "uri": "[format('{0}vhds/osdisk.vhd', reference(resourceId('Microsoft.Storage/storageAccounts', format('{0}stg', parameters('virtualMachineName')))).primaryEndpoints.blob)]"
                             }
                           },
                           "imageReference": {
@@ -688,7 +716,8 @@
                         }
                       },
                       "dependsOn": [
-                        "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"
+                        "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]",
+                        "[resourceId('Microsoft.Storage/storageAccounts', format('{0}stg', parameters('virtualMachineName')))]"
                       ]
                     },
                     {
@@ -769,8 +798,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "12953393261427160773"
+                      "version": "0.7.4.23292",
+                      "templateHash": "9044890781125198540"
                     }
                   },
                   "parameters": {
@@ -881,8 +910,8 @@
                           "metadata": {
                             "_generator": {
                               "name": "bicep",
-                              "version": "0.6.11.53198",
-                              "templateHash": "2048812493378558945"
+                              "version": "0.7.4.23292",
+                              "templateHash": "4876306516083569581"
                             }
                           },
                           "parameters": {
@@ -1009,8 +1038,8 @@
                           "metadata": {
                             "_generator": {
                               "name": "bicep",
-                              "version": "0.6.11.53198",
-                              "templateHash": "4693785154453315215"
+                              "version": "0.7.4.23292",
+                              "templateHash": "1443545022889372193"
                             }
                           },
                           "parameters": {
@@ -1180,8 +1209,8 @@
                           "metadata": {
                             "_generator": {
                               "name": "bicep",
-                              "version": "0.6.11.53198",
-                              "templateHash": "17772352377207184509"
+                              "version": "0.7.4.23292",
+                              "templateHash": "4564433530859001245"
                             }
                           },
                           "parameters": {
@@ -1472,8 +1501,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "5935744902199483517"
+                      "version": "0.7.4.23292",
+                      "templateHash": "15664792992538035915"
                     }
                   },
                   "parameters": {
@@ -1490,6 +1519,10 @@
                       "metadata": {
                         "description": "Type of strage account to use"
                       }
+                    },
+                    "kind": {
+                      "type": "string",
+                      "defaultValue": "StorageV2"
                     }
                   },
                   "resources": [
@@ -1501,7 +1534,7 @@
                       "sku": {
                         "name": "[parameters('storageAccountType')]"
                       },
-                      "kind": "StorageV2"
+                      "kind": "[parameters('kind')]"
                     }
                   ]
                 }
@@ -1536,8 +1569,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "3467883391406773898"
+                      "version": "0.7.4.23292",
+                      "templateHash": "7231295605680105651"
                     }
                   },
                   "parameters": {
@@ -1650,8 +1683,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "12697993426093693890"
+                      "version": "0.7.4.23292",
+                      "templateHash": "2369489552986605822"
                     }
                   },
                   "parameters": {
@@ -1911,8 +1944,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "15928539967539115686"
+                      "version": "0.7.4.23292",
+                      "templateHash": "10851730026874668481"
                     }
                   },
                   "parameters": {
@@ -2064,8 +2097,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "4271579669011229927"
+                      "version": "0.7.4.23292",
+                      "templateHash": "5981256925242941372"
                     }
                   },
                   "parameters": {
@@ -2158,8 +2191,8 @@
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.6.11.53198",
-              "templateHash": "14545199930156203081"
+              "version": "0.7.4.23292",
+              "templateHash": "1736589391953219338"
             }
           },
           "parameters": {
@@ -2231,8 +2264,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "16224549864217191260"
+                      "version": "0.7.4.23292",
+                      "templateHash": "17910528836141752574"
                     }
                   },
                   "parameters": {
@@ -2416,8 +2449,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "1700138071535369743"
+                      "version": "0.7.4.23292",
+                      "templateHash": "4952391875327123793"
                     }
                   },
                   "parameters": {
@@ -2540,10 +2573,14 @@
                     },
                     "storageAccountType": {
                       "type": "string",
-                      "defaultValue": "StandardSSD_ZRS",
+                      "defaultValue": "Standard_GRS",
                       "metadata": {
                         "description": "Type of strage account to use"
                       }
+                    },
+                    "storageAccountKind": {
+                      "type": "string",
+                      "defaultValue": "Storage"
                     },
                     "storageDiskSize": {
                       "type": "int",
@@ -2581,6 +2618,7 @@
                       "caching": "ReadOnly",
                       "writeAcceleratorEnabled": false,
                       "storageAccountType": "[parameters('storageAccountType')]",
+                      "storageAccountKind": "[parameters('storageAccountKind')]",
                       "diskSizeGB": "[parameters('storageDiskSize')]"
                     },
                     "tempDbPath": "D:\\SQLTemp"
@@ -2638,6 +2676,27 @@
                       ]
                     },
                     {
+                      "type": "Microsoft.Storage/storageAccounts",
+                      "apiVersion": "2021-09-01",
+                      "name": "[format('{0}stg', parameters('virtualMachineName'))]",
+                      "location": "[parameters('location')]",
+                      "sku": {
+                        "name": "[parameters('storageAccountType')]"
+                      },
+                      "kind": "[parameters('storageAccountKind')]"
+                    },
+                    {
+                      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+                      "apiVersion": "2021-01-01",
+                      "name": "[format('{0}/default/vhds', format('{0}stg', parameters('virtualMachineName')))]",
+                      "properties": {
+                        "publicAccess": "None"
+                      },
+                      "dependsOn": [
+                        "[resourceId('Microsoft.Storage/storageAccounts', format('{0}stg', parameters('virtualMachineName')))]"
+                      ]
+                    },
+                    {
                       "type": "Microsoft.Compute/virtualMachines",
                       "apiVersion": "2021-11-01",
                       "name": "[parameters('virtualMachineName')]",
@@ -2657,16 +2716,18 @@
                                 "caching": "[if(greaterOrEquals(range(0, parameters('sqlDataDisksCount'))[copyIndex('dataDisks')], parameters('sqlDataDisksCount')), 'None', variables('dataDisks').caching)]",
                                 "writeAcceleratorEnabled": "[variables('dataDisks').writeAcceleratorEnabled]",
                                 "diskSizeGB": "[variables('dataDisks').diskSizeGB]",
-                                "managedDisk": {
-                                  "storageAccountType": "[variables('dataDisks').storageAccountType]"
+                                "name": "[format('{0}datadisk{1}', parameters('virtualMachineName'), range(0, parameters('sqlDataDisksCount'))[copyIndex('dataDisks')])]",
+                                "vhd": {
+                                  "uri": "[format('{0}vhds/datadisk{1}.vhd', reference(resourceId('Microsoft.Storage/storageAccounts', format('{0}stg', parameters('virtualMachineName')))).primaryEndpoints.blob, range(0, parameters('sqlDataDisksCount'))[copyIndex('dataDisks')])]"
                                 }
                               }
                             }
                           ],
                           "osDisk": {
                             "createOption": "FromImage",
-                            "managedDisk": {
-                              "storageAccountType": "Premium_LRS"
+                            "name": "[format('{0}osdisk', parameters('virtualMachineName'))]",
+                            "vhd": {
+                              "uri": "[format('{0}vhds/osdisk.vhd', reference(resourceId('Microsoft.Storage/storageAccounts', format('{0}stg', parameters('virtualMachineName')))).primaryEndpoints.blob)]"
                             }
                           },
                           "imageReference": {
@@ -2694,7 +2755,8 @@
                         }
                       },
                       "dependsOn": [
-                        "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"
+                        "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]",
+                        "[resourceId('Microsoft.Storage/storageAccounts', format('{0}stg', parameters('virtualMachineName')))]"
                       ]
                     },
                     {
@@ -2781,8 +2843,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "7867171962179871610"
+                      "version": "0.7.4.23292",
+                      "templateHash": "2066769431591737298"
                     }
                   },
                   "parameters": {
@@ -3121,8 +3183,8 @@
                           "metadata": {
                             "_generator": {
                               "name": "bicep",
-                              "version": "0.6.11.53198",
-                              "templateHash": "2048812493378558945"
+                              "version": "0.7.4.23292",
+                              "templateHash": "4876306516083569581"
                             }
                           },
                           "parameters": {
@@ -3253,8 +3315,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "5935744902199483517"
+                      "version": "0.7.4.23292",
+                      "templateHash": "15664792992538035915"
                     }
                   },
                   "parameters": {
@@ -3271,6 +3333,10 @@
                       "metadata": {
                         "description": "Type of strage account to use"
                       }
+                    },
+                    "kind": {
+                      "type": "string",
+                      "defaultValue": "StorageV2"
                     }
                   },
                   "resources": [
@@ -3282,7 +3348,7 @@
                       "sku": {
                         "name": "[parameters('storageAccountType')]"
                       },
-                      "kind": "StorageV2"
+                      "kind": "[parameters('kind')]"
                     }
                   ]
                 }
@@ -3317,8 +3383,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.6.11.53198",
-                      "templateHash": "3467883391406773898"
+                      "version": "0.7.4.23292",
+                      "templateHash": "7231295605680105651"
                     }
                   },
                   "parameters": {
