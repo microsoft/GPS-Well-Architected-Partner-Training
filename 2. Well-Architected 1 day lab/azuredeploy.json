@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.7.4.23292",
-      "templateHash": "10074584210818871574"
+      "templateHash": "15398074448090386464"
     }
   },
   "parameters": {
@@ -111,7 +111,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.7.4.23292",
-              "templateHash": "6553948147175848728"
+              "templateHash": "3949619918665366314"
             }
           },
           "parameters": {
@@ -399,9 +399,6 @@
                   },
                   "storageDiskSize": {
                     "value": 2048
-                  },
-                  "storageAccountType": {
-                    "value": "StandardSSD_LRS"
                   }
                 },
                 "template": {
