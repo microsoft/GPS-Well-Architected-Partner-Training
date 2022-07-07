@@ -19,13 +19,13 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Well Architected 1-day Lab for Partners 2022
-email: me@example.com
+# email: me@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Designed by the GPS CSA WE Team
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# baseurl: "" # the subpath of your site, e.g. /blog
+# url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  microsoft
-# markdown: GFM
+markdown: GFM
 
 # Build settings
 theme: jekyll-theme-slate
