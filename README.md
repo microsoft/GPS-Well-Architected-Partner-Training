@@ -1,5 +1,6 @@
 # The Well-Architected Training for partners
 
+[![pages-build-deployment](https://github.com/microsoft/GPS-Well-Architected-Partner-Training/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/microsoft/GPS-Well-Architected-Partner-Training/actions/workflows/pages/pages-build-deployment)
 ## Why do you need Well-Architected and why it matters
 
 Running an architecture review after an incident is a very important tool to understand why it happened, but it may be too late because it could have already generated unexpected costs, business losses, a data breach, customer churn, loss of revenue or many other problems.
