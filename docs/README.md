@@ -6,7 +6,7 @@
 Welcome to the Well-Architected lab. This is a 1-day hands-on experience where
 you will be given a set of challenges
 to practice the skills you learnt in the
-[Well-Architected Workshop](../1.%20Well-Architected%20Workshop).
+[Well-Architected Workshop](https://github.com/microsoft/GPS-Well-Architected-Partner-Training/tree/main/1.%20Well-Architected%20Workshop).
 
 In this lab you have to review the architecture of the Contoso Inc. Insurance
 company and provide a roadmap of recommendations based on the Well-Architected
