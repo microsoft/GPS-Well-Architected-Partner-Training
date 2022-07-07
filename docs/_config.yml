@@ -28,7 +28,7 @@ github_username:  microsoft
 markdown: GFM
 
 # Build settings
-theme: jekyll-theme-slate
+theme: jekyll-theme-cayman
 # plugins:
 #   - jekyll-feed
 
