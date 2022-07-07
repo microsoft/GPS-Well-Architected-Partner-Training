@@ -24,8 +24,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Designed by the GPS CSA WE Team
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  jmservera
-markdown: GFM
+github_username:  microsoft
+# markdown: GFM
 
 # Build settings
 theme: jekyll-theme-slate
