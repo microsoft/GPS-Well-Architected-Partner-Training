@@ -1,11 +1,11 @@
-# Well-Architected 1-day lab
+# Well-Architected lab 2022
 
 
 &lt; prev &nbsp; \[[Start][start]\] [1][1] &nbsp; [2][2] &nbsp; [3][3] &nbsp; [4][4] &nbsp; [5][5] &nbsp; [6][6] &nbsp; [7][7] &nbsp; [8][8] &nbsp; [next &gt;][next]
 
-Welcome to the Well-Architected lab. This is a 1-day hands-on experience where
-you will be given a set of challenges
-to practice the skills you learnt in the
+Welcome to the Well-Architected lab. This is a full-day hands-on experience
+where you will be given a set of challenges to practice the skills you learnt
+in the
 [Well-Architected Workshop](https://github.com/microsoft/GPS-Well-Architected-Partner-Training/tree/main/1.%20Well-Architected%20Workshop).
 
 In this lab you have to review the architecture of the Contoso Inc. Insurance
