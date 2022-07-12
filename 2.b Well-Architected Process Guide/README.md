@@ -1,3 +1,6 @@
+---
+mermaid: true
+---
 # Well-Architected processes and tools for ISV and self-serve guide
 
 > :warning:**Work in progress** \

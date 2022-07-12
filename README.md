@@ -1,3 +1,7 @@
+---
+title: Well-Architected Partner Training
+mermaid: true
+---
 # The Well-Architected Training for partners
 
 [![pages-build-deployment](https://github.com/microsoft/GPS-Well-Architected-Partner-Training/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/microsoft/GPS-Well-Architected-Partner-Training/actions/workflows/pages/pages-build-deployment)
@@ -31,9 +35,7 @@ This repository contains the public training materials for the Well-Architected 
     * For **ISVs** we have prepared a step-by-step guide to help you review your own workload in the [Well-Architected Process Guide][WAF-Process-Guide]
 
 ```mermaid
-
 flowchart TD
-
 1([Well-Architected introduction])
 2(2-hour Workshop)
 3{Partner type}
@@ -76,10 +78,10 @@ class 2,5si.a,6si purple;
 
 class nodeId6si greenStroke;
 
-click 2 "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/1. Well-Architected Workshop" "WAF Workshop"
-click 5si.a "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/2. Well-Architected 1 day lab" "WAF Lab"
-click 5si.b "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/2.b Well-Architected Process%20Guide" "WAF Process Guide"
-click 4isv "./microsoft/GPS-Well-Architected-Partner-Training/tree/main/2.b Well-Architected Process%20Guide" "WAF Process Guide"
+click 2 "./1. Well-Architected Workshop" "WAF Workshop"
+click 5si.a "./2. Well-Architected 1 day lab" "WAF Lab"
+click 5si.b "./2.b Well-Architected Process%20Guide" "WAF Process Guide"
+click 4isv "./2.b Well-Architected Process%20Guide" "WAF Process Guide"
 ```
 
 ## Description
@@ -122,11 +124,11 @@ This project is licensed under the [MIT license](LICENSE).
 
 > **Trademarks** This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow [Microsoft’s Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general). Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party’s policies.
 
-[WAF-Intro]: ../../../GPS-Well-Architected-Partner-Training/tree/main/0.%20Well-Architected%20Introduction
-[WAF-Workshop]: ../../../GPS-Well-Architected-Partner-Training/tree/main/1.%20Well-Architected%20Workshop
-[WAF-Lab]: ../../../GPS-Well-Architected-Partner-Training/tree/main/2.%20Well-Architected%201%20day%20lab
-[WAF-Offering]: ../../../GPS-Well-Architected-Partner-Training/tree/main/3.%20Well-Architected%20Offering
-[WAF-Process-Guide]: ../../../GPS-Well-Architected-Partner-Training/tree/main/2.b%20Well-Architected%20Process%20Guide
+[WAF-Intro]: https://github.com/microsoft/GPS-Well-Architected-Partner-Training/tree/main/0.%20Well-Architected%20Introduction
+[WAF-Workshop]: ./1.%20Well-Architected%20Workshop
+[WAF-Lab]: ./2.%20Well-Architected%201%20day%20lab
+[WAF-Offering]: ./3.%20Well-Architected%20Offering
+[WAF-Process-Guide]: ./2.b%20Well-Architected%20Process%20Guide
 [WAF_training_process]: ./WAF_training_process.svg "The Well-Architected training explained"
 [partner-training]: https://www.microsoft.com/azure/partners/well-architected
 [docs-training]: https://docs.microsoft.com/en-us/learn/paths/azure-well-architected-framework/
