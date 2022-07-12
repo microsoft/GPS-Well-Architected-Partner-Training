@@ -21,7 +21,7 @@ Well-Architected Framework standardized process || 20 min
 Break || 15 min
 Group formation || 10 min
 Case Study & Lab rest of the day |
-Build your case |* Review the customer case study.20min<br/>* Plan for information collection.15min<br/>* Cost optimization.45min<br/>* Security.30min<br/>* Reliability.60-90min<br/>* Performance & Efficiency.45min<br/>* Operational Excellence.30min<br/>* Create a prioritized plan.30min<br/>| ~5h
+Build your case |{::nomarkdown}<table><tr><td>Review the customer case study</td><td>20min</td></tr><tr><td> Plan for information collection</td><td>15min</td></tr><tr><td> Cost optimization</td><td>45min</td></tr><tr><td> Security</td><td>30min</td></tr><tr><td> Reliability</td><td>60-90min</td></tr><tr><td> Performance & Efficiency</td><td>45min</td></tr><tr><td> Operational Excellence</td><td>30min</td></tr><tr><td> Create a prioritized plan</td><td>30min</td></tr></table>{:/}| ~5h
 Break || 45 min
 Teams presentation || 1h
 Wrap up || 30 min
