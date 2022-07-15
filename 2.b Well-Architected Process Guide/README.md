@@ -42,7 +42,7 @@ You should have already seen in the [Well-Architected Introduction][waf-introduc
 | **Field** | **Description** |
 | --- | --- |
 | **Name** | The actual name for your workload|
-| **Description** | A short description of your workload in three paragraphs:<br>*The business case it adresses<br>* The technology it is using<br>* The team and resources it needs |
+| **Description** | A short description of your workload in three paragraphs:<br>· The business case it adresses<br>· The technology it is using<br>· The team and resources it needs |
 
 ### Define the Scope
 
