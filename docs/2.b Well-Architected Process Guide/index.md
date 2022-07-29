@@ -48,13 +48,13 @@ You should have already seen in the [Well-Architected Introduction][waf-introduc
 
 Doing the complete assessment of your workload can be a long process and take a long time. So, it is better to restrain the scope for your assessment to focus on the most important areas aligned with your current business needs.
 
-**Pick at most three** of the five pillars of the Well-Architected Framework:
+As a general rule, **pick at most three** of the five pillars of the Well-Architected Framework:
 
-* [x] Cost optimization
-* [ ] Performance Efficiency
-* [ ] Reliability
-* [ ] Operational Excellence
-* [x] Security
+- [x] Cost optimization
+- [ ] Performance Efficiency
+- [ ] Reliability
+- [ ] Operational Excellence
+- [x] Security
 
 > 🆘 If you are not sure, start with the Cost Optimization one. It will have an easily measurable impact in terms of savings, and the budget margin you will gain could serve to enhance the other pillars afterward. Another good one to start with is the Security one.
 
@@ -66,14 +66,14 @@ You will also need a read-only access to the workload resources on Azure, to con
 
 Here's a checklist of what you need before starting the assessment:
 
-* [ ] List of the people who will be involved in the assessment
-* [ ] Account with read access to the workload's subscription
-* [ ] Architecture diagrams of the current workload
-* [ ] If available, the roadmap for the next version
-* [ ] Prepare and block the meetings with all the people involved
-  * [ ] First two days with the owner and architects
-  * [ ] Third and fourth days to analyze the results and write-down the recommendations
-  * [ ] Fifth day to present the results to everyone and agree on the next steps
+- [ ] List of the people who will be involved in the assessment
+- [ ] Account with read access to the workload's subscription
+- [ ] Architecture diagrams of the current workload
+- [ ] If available, the roadmap for the next version
+- [ ] Prepare and block the meetings with all the people involved
+  - [ ] First two days with the owner and architects
+  - [ ] Third and fourth days to analyze the results and write-down the recommendations
+  - [ ] Fifth day to present the results to everyone and agree on the next steps
 
 ## Select the type of Assessment you want to do
 
