@@ -3,7 +3,7 @@ mermaid: true
 ---
 # Well-Architected processes and tools for ISV and self-serve guide
 
-> :warning:**Work in progress** \
+> ⚠️**Work in progress** \
 This guide is still incomplete, but is based on the information you will find in the [Workshop][waf-workshop].
 
 The Well-Architected Framework contains a set of processes and tools to help customers review and enhance their workloads on Azure. You can find a detailed explanation on how to use the framework in the [Well-Architected Workshop][waf-workshop].
@@ -54,9 +54,9 @@ Doing the complete assessment of your workload can be a long process and take a 
 * [ ] Performance Efficiency
 * [ ] Reliability
 * [ ] Operational Excellence
-* [ ] Security
+* [x] Security
 
-> 🆘 If you are not sure, start with the Cost Optimization one. It will have an easily measurable impact in terms of savings, and the budget margin you will gain could serve to enhance the other pillars afterward.
+> 🆘 If you are not sure, start with the Cost Optimization one. It will have an easily measurable impact in terms of savings, and the budget margin you will gain could serve to enhance the other pillars afterward. Another good one to start with is the Security one.
 
 ### People and resources
 
@@ -110,6 +110,8 @@ end
 A-->B-->C-->D-->E
 ```
 
+---
+
 ### Start with the assessment
 
 Now that you have all the prerequisites, you can start with the assessment. But first, let's review again that you have all the information:
@@ -119,13 +121,15 @@ Now that you have all the prerequisites, you can start with the assessment. But 
 * [ ] You have access to the resources in Azure
 * [ ] You have prepared the agenda and the meetings
 
+---
+
 All right, let's [start with the review][1]. If you came back here but you have already started, continue in any of these steps:
 
 * Discover
   * [Workload mind map][1]
   * [Information collection][2]
-* Analyze
-  * [Cost Optimization][3]
+* [Analyze][3]
+  * [Cost Optimization][3.A]
   * [Security][3.B]
   * [Reliability][3.C]
   * [Performance Efficiency][3.D]
@@ -137,7 +141,8 @@ All right, let's [start with the review][1]. If you came back here but you have 
 
 [1]: ./steps/01.Workload.md
 [2]: ./steps/02.Collection.md
-[3]: ./steps/03.A.CostOptimization.md
+[3]: ./steps/03.Analyze
+[3.A]: ./steps/03.A.CostOptimization.md
 [3.B]: ./steps/03.B.Security.md
 [3.C]: ./steps/03.C.Reliability.md
 [3.D]: ./steps/03.D.Performance.md
