@@ -86,7 +86,9 @@ click 4isv "./2.b Well-Architected Process%20Guide" "WAF Process Guide"
 
 ## Description
 
-The [Well-Architected Framework][WAF-Intro] is a well-defined process for running architecture reviews and provide your customers a consistent list of recommendations for enhancing their workloads in Azure.
+The [Well-Architected Framework][WAF-Intro] is a well-defined process for
+running architecture reviews and provide your customers a consistent list of
+recommendations for enhancing their workloads in Azure.
 
 These materials can be used standalone, but they are intended to be used in a training run by the GPS team in Microsoft. Ask your Microsoft representative if there is any Well-Architected event in your region that you would like to attend.
 
