@@ -64,9 +64,10 @@ Below is an example of a format that the delivery might take.
 | **Day 3 / AM** | Reporting and result collection.|
 | **Day 3 / PM** | Presentation of the results. Prioritization of the remediation activity.|
 
+
 ```mermaid
 flowchart LR
-
+%%{init: {'flowchart':{'useMaxWidth': true}}}%%
 subgraph Discover
 A["<h2>Day 1 (Meetings)</h2>Kick-Off<br>Whiteboard and Dashboarding<br>Well-Architected Go-Live survey and interviews"] 
 end

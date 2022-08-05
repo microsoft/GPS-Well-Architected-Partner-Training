@@ -14,6 +14,7 @@ In the Well-Architected framework process we define four phases:
 
 ```mermaid
 flowchart LR;
+%%{init: {'flowchart':{'useMaxWidth': true}}}%%
     Prioritize --> Optimize;    
     subgraph Review
     Discover --> Analyze --> Prioritize;
@@ -61,7 +62,7 @@ Well-Architected Go-Live is positioned as a "go forward" assessment that is used
 * It works best for cloud native workloads. (using mostly PaaS components like App Service or SQL DB) 
 * It is a cross-pillar offering and helps identify any major risks or concerns that should be addressed before "going live". 
 
-If you decide to deliver a Go-Live assessment, continue with the [Go-Live assessment guide](./Go-Live.md).
+If you decide to deliver a Go-Live assessment, continue with the [Go-Live assessment guide][go-live].
 Otherwise continue to the next step.
 > 🆘 If you are still unsure, continue with the Core Well-Architected assessment in this article.
 
@@ -115,7 +116,7 @@ Establish the rhythm of the architecture review and plan each day. Here's an exa
 
 ```mermaid
 flowchart LR
-
+%%{init: {'flowchart':{'useMaxWidth': true}}}%%
 subgraph Discover
 A["<h2>Day 1 (Meetings)</h2>Kick-off meeting<br>Well-Architected survey"] 
 B["<h2>Day 2 (Meetings)</h2>Subscription walkthrough<br>Gather data with CCO Dashboard"]
@@ -173,6 +174,7 @@ All right, let's [start with the review][1]. If you came back here but you have 
 [6]: ./steps/06.Finalize.md
 
 [waf-introduction]: ../0.%20Well-Architected%20Introduction
+[go-live]: ./Go-Live
 [waf-review]: https://docs.microsoft.com/en-us/assessments/
 [waf-workshop]: ../1.%20Well-Architected%20Workshop
 [warp]: https://github.com/Azure/WellArchitected-Tools/tree/main/WARP/devops#reporting

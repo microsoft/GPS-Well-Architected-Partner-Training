@@ -38,6 +38,7 @@ This repository contains the public training materials for the Well-Architected 
 
 ```mermaid
 flowchart TD
+%%{init: {'flowchart':{'useMaxWidth': true}}}%%
 1([Well-Architected introduction])
 2(2-hour Workshop)
 3{Partner type}
@@ -139,7 +140,7 @@ This project is licensed under the [MIT license](LICENSE).
 [WAF-Lab]: ./2.%20Well-Architected%201%20day%20lab
 [WAF-Offering]: ./3.%20Well-Architected%20Offering
 [WAF-Process-Guide]: ./2.b%20Well-Architected%20Process%20Guide
-[go-live]: ./2.b%20Well-Architected%20Process%20Guide/Go-Live.md
+[go-live]: ./2.b%20Well-Architected%20Process%20Guide/Go-Live
 [WAF_training_process]: ./WAF_training_process.svg "The Well-Architected training explained"
 [partner-training]: https://www.microsoft.com/azure/partners/well-architected
 [docs-training]: https://docs.microsoft.com/en-us/learn/paths/azure-well-architected-framework/
