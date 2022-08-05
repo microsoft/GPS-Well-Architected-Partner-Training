@@ -122,9 +122,6 @@ These activities may include:
 - Remediation activity on the workload to reduce critical risks
 - Process changes to better support the workload as it moves to production
 
-
-
-
 [1]: ./steps/01.Workload.md
 [2]: ./steps/02.Collection.md
 [3]: ./steps/03.A.CostOptimization.md
