@@ -32,7 +32,9 @@ This repository contains the public training materials for the Well-Architected 
             * The [Well-Architected Lab][WAF-Lab] for getting hands-on experience with a ficticius customer-case
             * If you already have a customer case where you want to work on, you can use the [Well-Architected Process Guide][WAF-Process-Guide] where you have a guided step-by-step to do an assessment and provide recommendations to your customer.
         2. The [Well-Architected Offering][WAF-Offering] to learn how to create a new offering in the Azure Marketplace
-    * For **ISVs** we have prepared a step-by-step guide to help you review your own workload in the [Well-Architected Process Guide][WAF-Process-Guide]
+    * For **ISVs** we have prepared a step-by-step guide to help you review your own workload:
+        1. The [Well-Architected Process Guide][WAF-Process-Guide] that explain the full WAF process
+        2. The [Go-Live assessment][go-live] used to review a change that is not yet in production or has just gone into production.
 
 ```mermaid
 flowchart TD
@@ -116,6 +118,12 @@ Ask your local PTS/PDM in Microsoft GPS organization for getting info about upco
 
 This is a step-by-step guide to help you run a Well-Architected assessment and provide recommendations to a workload. It can be used by both System Integrators and ISVs.
 
+### [Go-Live assessment][go-live]
+
+Well-Architected Go-Live is positioned as a "go forward" assessment that is used to review a change that is not yet in production or has just gone into production.
+* It works best for cloud native workloads. (using mostly PaaS components like App Service or SQL DB) 
+* It is a cross-pillar offering and helps identify any major risks or concerns that should be addressed before "going live".
+
 ### [Well-Architected Offering][WAF-Offering]
 
 As a Microsoft Partner you want to create new services offers in the Azure Marketplace. You can use the [Well-Architected Offering][WAF-Offering] to learn how to create a new offering in the Azure Marketplace.
@@ -131,6 +139,7 @@ This project is licensed under the [MIT license](LICENSE).
 [WAF-Lab]: ./2.%20Well-Architected%201%20day%20lab
 [WAF-Offering]: ./3.%20Well-Architected%20Offering
 [WAF-Process-Guide]: ./2.b%20Well-Architected%20Process%20Guide
+[go-live]: ./2.b%20Well-Architected%20Process%20Guide/Go-Live.md
 [WAF_training_process]: ./WAF_training_process.svg "The Well-Architected training explained"
 [partner-training]: https://www.microsoft.com/azure/partners/well-architected
 [docs-training]: https://docs.microsoft.com/en-us/learn/paths/azure-well-architected-framework/
