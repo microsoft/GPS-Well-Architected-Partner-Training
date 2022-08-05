@@ -174,7 +174,7 @@ All right, let's [start with the review][1]. If you came back here but you have 
 [6]: ./steps/06.Finalize.md
 
 [waf-introduction]: ../0.%20Well-Architected%20Introduction
-[go-live]: ./Go-Live
+[go-live]: ./Go-Live.md
 [waf-review]: https://docs.microsoft.com/en-us/assessments/
 [waf-workshop]: ../1.%20Well-Architected%20Workshop
 [warp]: https://github.com/Azure/WellArchitected-Tools/tree/main/WARP/devops#reporting
