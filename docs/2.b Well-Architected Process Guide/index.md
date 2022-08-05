@@ -37,12 +37,33 @@ After this, check the next points: select your workload, define the scope and pe
 
 ### Select the workload
 
-You should have already seen in the [Well-Architected Introduction][waf-introduction] and [Workshop][waf-workshop] that we are going to work over a specific workload.So the first step is to define which workload we are going to review and gather some basic information about it. You may already know everything about your workload, but take the time to document it so anyone can have this information in the same place.
+You should have already seen in the [Well-Architected Introduction][waf-introduction] and [Workshop][waf-workshop] that we are going to work over a specific workload. So the first step is to define which workload we are going to review and gather some basic information about it. You may already know everything about your workload, but take the time to document it so anyone can have this information in the same place.
 
 | **Field** | **Description** |
 | --- | --- |
 | **Name** | The actual name for your workload|
 | **Description** | A short description of your workload in three paragraphs:<br>· The business case it adresses<br>· The technology it is using<br>· The team and resources it needs |
+
+### Determine the assessment motion
+
+Once you have identified the target workload, you should determine if the scenario is suitable for the Go-Live assessment motion. If it is, you may want to use the Well-Architected Go-Live assessment instead of the Well-Architected "Core" assessment referenced in this guide. 
+
+You can use the following questions about the workload to help you determine the assessment motion.
+
+* Is the architecture that you are being asked to assess in production already? 
+  * A solution may already be in production but you may want to assess a significant change/update to that solution.
+* Do they have specific concerns about the workload? (e.g. its cost, performance, etc.)
+* Would you class the workload as a particularly specialized scenario (e.g. IoT) or does it have numerous/specialized IaaS components (e.g. SAP HANA) or hybrid components? (e.g. multi-cloud) 
+
+If the answer to all of the three questions is "No", then the Well-Architected Go-Live assessment may be a good option.
+
+Well-Architected Go-Live is positioned as a "go forward" assessment that is used to review a change that is not yet in production or has just gone into production.
+* It works best for cloud native workloads. (using mostly PaaS components like App Service or SQL DB) 
+* It is a cross-pillar offering and helps identify any major risks or concerns that should be addressed before "going live". 
+
+If you decide to deliver a Go-Live assessment, continue with the [Go-Live assessment guide](./Go-Live.md).
+Otherwise continue to the next step.
+> 🆘 If you are still unsure, continue with the Core Well-Architected assessment in this article.
 
 ### Define the Scope
 
@@ -60,7 +81,7 @@ As a general rule, **pick at most three** of the five pillars of the Well-Archit
 
 ### People and resources
 
-Architecture is designed by people, and during the assessment you will need to review the motivations of some architectural decissions. You need to identify the people and resources that were involved in the current design. The people who own, use, operate and monitor the current deployment are also important in these meetings.
+Architecture is designed by people, and during the assessment you will need to review the motivations of some architectural decisions. You need to identify the people and resources that were involved in the current design. The people who own, use, operate and monitor the current deployment are also important in these meetings.
 
 You will also need a read-only access to the workload resources on Azure, to connect the tools to gather the information you need.
 
@@ -96,7 +117,7 @@ Establish the rhythm of the architecture review and plan each day. Here's an exa
 flowchart LR
 
 subgraph Discover
-A["<h2>Day 1 (Meetings)</h2>Quick-off meeting<br>Well-Architected survey"] 
+A["<h2>Day 1 (Meetings)</h2>Kick-off meeting<br>Well-Architected survey"] 
 B["<h2>Day 2 (Meetings)</h2>Subscription walkthrough<br>Gather data with CCO Dashboard"]
 end
 subgraph Analyze
