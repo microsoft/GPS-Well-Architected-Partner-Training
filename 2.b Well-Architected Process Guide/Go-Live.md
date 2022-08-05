@@ -1,3 +1,6 @@
+---
+mermaid: true
+---
 # Well-Architected Go-Live processes and tools for ISV and self-serve guide
 
 The Well-Architected Framework contains a set of processes and tools to help customers review and enhance their workloads on Azure. You can find a detailed explanation on how to use the framework in the [Well-Architected Workshop][waf-workshop].
@@ -74,8 +77,9 @@ subgraph Prioritize
 E["<h2>Day 3 (Meetings)</h2>Present recommendations<br>Discuss and reprioritize"]
 end
 
-A-->B-->C-->D-->E
+A-->C-->E
 ```
+
 You should set up meetings and calendar blockers for everyone involved so that they can make sure that they are available for all necessary interviews, whiteboarding sessions, and report read outs. 
 
 # Information Collection

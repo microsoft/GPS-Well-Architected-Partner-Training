@@ -46,7 +46,7 @@ You should have already seen in the [Well-Architected Introduction][waf-introduc
 
 ### Determine the assessment motion
 
-Once you have identified the target workload, you should determine if the scenario is suitable for the Go-Live assessment motion. If it is, you may want to use the Well-Architected Go-Live assessment instead of the Well-Architected "Core" assessment referenced in this guide. 
+Once you have identified the target workload, you should determine if the scenario is suitable for the **Go-Live assessment motion**. If it is, you may want to use the Well-Architected Go-Live assessment instead of the Well-Architected "Core" assessment referenced in this guide.
 
 You can use the following questions about the workload to help you determine the assessment motion.
 
