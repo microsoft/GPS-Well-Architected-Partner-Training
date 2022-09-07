@@ -25,6 +25,17 @@ flowchart LR;
     Review
 ```
 
+1. **Discover**: in this step you collect the relevant information and assess the
+workload, describe the current architecture and document the needs and
+objections of the customer.
+2. **Analyze**: assess mutual dependencies and trade-offs and document your
+recommendations, considering each of the WAF pillars.
+3. **Prioritize**: weigh the impact of the recommendations and idenify the
+optimal schedule.
+4. **Optimize**: this belongs to the remediation phase where you will review,
+fix, test and validate the recommendations. You should not forget to backup,
+communicate, test and document everything.
+
 In this guide we will focus on the three first phases belonging to the Review subset.
 
 ## Prerequisites
